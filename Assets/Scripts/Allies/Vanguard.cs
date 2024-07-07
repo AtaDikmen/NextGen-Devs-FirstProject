@@ -4,7 +4,7 @@ public class Vanguard : Ally
 {
     void Start()
     {
-        allyName = "Vanguard";
+        characterName = "Vanguard";
         damage = 20;
         attackSpeed = 0.6f;
         health = 80.0f;
@@ -21,7 +21,7 @@ public class Vanguard : Ally
         int bulletCount = 5;
         float spreadAngle = 100f;
 
-        Vector3 targetDirection = (targetEnemy.position - transform.position).normalized;
+        Vector3 targetDirection = (target.position - transform.position).normalized;
         float angleStep = spreadAngle / (bulletCount - 1);
         float angleOffset = -spreadAngle / 2;
 

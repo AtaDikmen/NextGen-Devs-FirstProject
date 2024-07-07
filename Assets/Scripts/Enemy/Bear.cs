@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bandit : Enemy
+public class Bear : Enemy
 {
     void Start()
     {
-        characterName = "Bandit";
+        characterName = "Bear";
         damage = 15;
         attackSpeed = 1.0f;
         health = 80.0f;
-        attackRadius = 5.0f;
+        attackRadius = 2.0f;
     }
 
     protected override void Attack()
     {
-        base.Attack();
+        // Special attack of Bear
     }
 }

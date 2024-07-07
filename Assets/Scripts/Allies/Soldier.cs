@@ -5,7 +5,7 @@ public class Soldier : Ally
 {
     void Start()
     {
-        allyName = "Soldier";
+        characterName = "Soldier";
         damage = 10;
         attackSpeed = 4f;
         health = 80.0f;

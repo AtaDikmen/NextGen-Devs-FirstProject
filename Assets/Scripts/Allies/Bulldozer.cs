@@ -7,7 +7,7 @@ public class Bulldozer : Ally
 
     void Start()
     {
-        allyName = "Bulldozer";
+        characterName = "Bulldozer";
         damage = 100;
         attackSpeed = 0.1f;
         health = 150.0f;
@@ -22,7 +22,7 @@ public class Bulldozer : Ally
     private void FireRocket()
     {
         GameObject rocket = Instantiate(rocketPrefab, bulletSpawnPoint.position, Quaternion.identity);
-        Vector3 direction = (targetEnemy.position - transform.position).normalized;
+        Vector3 direction = (target.position - transform.position).normalized;
 
         Rigidbody rb = rocket.GetComponent<Rigidbody>();
         if (rb != null)
@@ -37,6 +37,6 @@ public class Bulldozer : Ally
             rocketScript.explosionRadius = 5.0f;
         }
 
-        Debug.Log(allyName + " fired a rocket at " + targetEnemy.name + " causing an explosion with " + damage + " damage.");
+        Debug.Log(characterName + " fired a rocket at " + target.name + " causing an explosion with " + damage + " damage.");
     }
 }
