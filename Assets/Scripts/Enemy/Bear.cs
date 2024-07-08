@@ -16,5 +16,6 @@ public class Bear : Enemy
     protected override void Attack()
     {
         // Special attack of Bear
+        enemyAI.Stop();
     }
 }

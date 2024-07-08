@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 7988778541484530171}
   - component: {fileID: 5256916172186400825}
   - component: {fileID: 94157787515795665}
+  - component: {fileID: -9057131355749990373}
+  - component: {fileID: 7494475126637700597}
   m_Layer: 0
   m_Name: Primitive
   m_TagString: Enemy
@@ -153,7 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651e22904ef4d524b999816b1891fd3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  patrolRadius: 5
+  chaseRadius: 6
 --- !u!114 &94157787515795665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +172,52 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5258627849019245833, guid: 4a6387af5527376468386952d6aa3420,
     type: 3}
   bulletSpawnPoint: {fileID: 5073027348781138722}
+--- !u!54 &-9057131355749990373
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8003044736988126417}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!195 &7494475126637700597
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8003044736988126417}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
