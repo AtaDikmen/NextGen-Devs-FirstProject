@@ -43,11 +43,10 @@ GameObject:
   - component: {fileID: 6015350870782882416}
   - component: {fileID: 5586997372049971608}
   - component: {fileID: 4604508737215758322}
-  - component: {fileID: 8927820828341810112}
   - component: {fileID: 7515007049899264780}
   m_Layer: 3
   m_Name: Bulldozer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,18 +140,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8927820828341810112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7496165522104757541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164eab6e717d4a84384288e675275c04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7515007049899264780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,5 +155,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5134120758535130613, guid: d1076fa7a7c44a340a06a2e0e59b4952,
     type: 3}
   bulletSpawnPoint: {fileID: 6542518336059147453}
+  isAlive: 0
   rocketPrefab: {fileID: 945219914928370525, guid: 0efbc2fb92885a4419e4dd071a277889,
     type: 3}

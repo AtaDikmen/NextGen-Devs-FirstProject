@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 5331772399239011361}
   - component: {fileID: 4484445439567052710}
   - component: {fileID: 1969175451651167100}
-  - component: {fileID: 132553976789175344}
   - component: {fileID: 4041822215275562542}
   m_Layer: 3
   m_Name: Vanguard
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,18 +109,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &132553976789175344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3869896472508756121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164eab6e717d4a84384288e675275c04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4041822215275562542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +124,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5134120758535130613, guid: d1076fa7a7c44a340a06a2e0e59b4952,
     type: 3}
   bulletSpawnPoint: {fileID: 5714632543733523188}
+  isAlive: 0
 --- !u!1 &6647613911587975701
 GameObject:
   m_ObjectHideFlags: 0
