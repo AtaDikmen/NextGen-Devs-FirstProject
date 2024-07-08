@@ -12,6 +12,7 @@ public class Bear : Enemy
 
     void Start()
     {
+        enemyType = EnemyTypes.Bear;
         characterName = "Bear";
         damage = 15;
         attackSpeed = 1.0f;

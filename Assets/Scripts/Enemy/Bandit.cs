@@ -6,6 +6,7 @@ public class Bandit : Enemy
 {
     void Start()
     {
+        enemyType = EnemyTypes.Bandit;
         characterName = "Bandit";
         damage = 15;
         attackSpeed = 1.0f;

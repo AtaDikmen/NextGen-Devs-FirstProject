@@ -41,7 +41,6 @@ public class ResourceManager : Singleton<ResourceManager>
 
     public void AddGold(int goldAmount)
     {
-        goldAmount = 25;
         currentGold += goldAmount;
     }
 

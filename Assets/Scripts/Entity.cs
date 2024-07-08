@@ -15,7 +15,7 @@ public class Entity : MonoBehaviour, IDamagable
     protected float nextAttackTime;
     protected Transform target;
     protected string targetTag;
-    public bool isAlive;
+    public bool isAlive = true;
 
     void Update()
     {
@@ -93,9 +93,14 @@ public class Entity : MonoBehaviour, IDamagable
         if (health <= 0)
         {
             Debug.Log(characterName + " is Dead");
-
+            OnDead();
             isAlive = false;
             Destroy(gameObject); // for now
         }
+    }
+
+    public virtual void OnDead()
+    {
+
     }
 }

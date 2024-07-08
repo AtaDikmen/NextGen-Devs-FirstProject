@@ -6,6 +6,7 @@ public class Primitive : Enemy
 {
     void Start()
     {
+        enemyType = EnemyTypes.Primitive;
         characterName = "Primitive";
         damage = 15;
         attackSpeed = 1.0f;
