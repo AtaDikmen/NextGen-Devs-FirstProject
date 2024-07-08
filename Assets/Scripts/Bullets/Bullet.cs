@@ -5,15 +5,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage;
+    public string targetTag;
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag(targetTag))
         {
-            collision.gameObject.GetComponent<Entity>().TakeDamage(damage);
-        }
-        else
-        {
+            Debug.Log(targetTag);
+
+            other.gameObject.GetComponent<Entity>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
