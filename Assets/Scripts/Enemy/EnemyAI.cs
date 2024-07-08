@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float chaseRadius = 5;
     private NavMeshAgent agent;
     private float initialSpeed;
+    private bool isPatrolling;
 
     void Start()
     {
@@ -19,9 +20,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (agent.isStopped) return;
-        
-        FindPlayerToChase();
+         FindPlayerToChase();
     }
 
     private void FindPlayerToChase()
@@ -42,7 +41,7 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
-
+         
         if (closestEnemy != null)
         {
             agent.SetDestination(closestEnemy.position);
@@ -54,14 +53,16 @@ public class EnemyAI : MonoBehaviour
     }
     public void Stop()
     {
+        isPatrolling = false;
         agent.isStopped = true;
         agent.speed = 0;
     }
 
     public void Patrol()
     {
-        if (agent.remainingDistance > agent.stoppingDistance) return;
+        if (!agent.isStopped && agent.remainingDistance > agent.stoppingDistance) return;
         
+        isPatrolling = true;
         agent.isStopped = false;
         agent.speed = initialSpeed;
         agent.SetDestination(RandomNavmeshLocation());

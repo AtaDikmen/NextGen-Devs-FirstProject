@@ -80,12 +80,12 @@ public class Entity : MonoBehaviour
         Debug.Log(characterName + " is attacking " + target.name + " for " + damage + " damage.");
     }
 
-    protected virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
