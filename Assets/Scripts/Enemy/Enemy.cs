@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    protected EnemyAI enemyAI;
+
     private void Awake()
     {
         targetTag = "Player";
@@ -14,5 +16,8 @@ public class Enemy : Entity
         health = 100.0f;
         attackRadius = 5.0f;
         nextAttackTime = 0f;
+
+        enemyAI = GetComponent<EnemyAI>();
     }
+
 }

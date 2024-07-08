@@ -16,6 +16,7 @@ public class Entity : MonoBehaviour
     protected Transform target;
     protected string targetTag;
 
+
     void Update()
     {
         FindClosestEnemy();
@@ -58,6 +59,8 @@ public class Entity : MonoBehaviour
 
     protected virtual void Attack()
     {
+        transform.LookAt(target);
+        
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
         Vector3 direction = (target.position - transform.position).normalized;
 
@@ -75,6 +78,15 @@ public class Entity : MonoBehaviour
         //}
 
         Debug.Log(characterName + " is attacking " + target.name + " for " + damage + " damage.");
+    }
+
+    protected virtual void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmos()
