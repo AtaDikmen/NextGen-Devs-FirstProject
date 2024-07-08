@@ -31,6 +31,8 @@ public class ResourceManager : MonoBehaviour
 
     public void SubWood(int woodAmount)
     {
+        if (currentWood <= 0)
+            return;
         woodAmount = 1;
         currentWood -= woodAmount;
     }
@@ -43,6 +45,8 @@ public class ResourceManager : MonoBehaviour
 
     public void SubGold(int goldAmount)
     {
+        if (currentGold <= 0)
+            return;        
         goldAmount = 1;
         currentGold -= goldAmount;
     }
