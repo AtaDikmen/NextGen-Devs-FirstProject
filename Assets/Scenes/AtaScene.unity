@@ -1305,6 +1305,7 @@ GameObject:
   - component: {fileID: 1561362400}
   - component: {fileID: 1561362399}
   - component: {fileID: 1561362398}
+  - component: {fileID: 1561362402}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1400,6 +1401,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561362402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561362397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14aa7835a44a08548a633e8217c42421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
 --- !u!1 &1576142820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2303,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7613663913234429984, guid: 2f4762abd8ec12a43af76c558ef1454d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.569
+      objectReference: {fileID: 0}
     - target: {fileID: 7797339603364723671, guid: 2f4762abd8ec12a43af76c558ef1454d,
         type: 3}
       propertyPath: m_Name
@@ -2296,7 +2316,7 @@ PrefabInstance:
     - target: {fileID: 7797339603364723671, guid: 2f4762abd8ec12a43af76c558ef1454d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2174961041634405391, guid: 2f4762abd8ec12a43af76c558ef1454d, type: 3}
@@ -2324,6 +2344,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951796857117828821, guid: a6f36525b58bd6844b21f970d41f6e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6661062424971119945, guid: a6f36525b58bd6844b21f970d41f6e7e,
         type: 3}
