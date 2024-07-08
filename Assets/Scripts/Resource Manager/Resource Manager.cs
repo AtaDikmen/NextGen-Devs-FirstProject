@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public class ResourceManager : Singleton<ResourceManager>
 {
     [SerializeField] private int woodStart = 0;
     [SerializeField] private int goldStart = 0;
@@ -14,15 +14,17 @@ public class ResourceManager : MonoBehaviour
     private int currentWood;
     private int currentGold;
 
+    private void Awake() {
+        base.Awake();
+        currentWood = woodStart;
+        currentGold = goldStart;    
+    }
+
     private void Update() {
         woodResource.text = "Wood: " + currentWood;
         goldResource.text = "Gold: " + currentGold;
     }
 
-    private void Awake() {
-        currentWood = woodStart;
-        currentGold = goldStart;    
-    }
 
     public void AddWood()
     {
