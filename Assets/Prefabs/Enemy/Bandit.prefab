@@ -172,6 +172,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5258627849019245833, guid: 4a6387af5527376468386952d6aa3420,
     type: 3}
   bulletSpawnPoint: {fileID: 6843004898295042537}
+  isTargetFound: 0
 --- !u!54 &4181146405794152734
 Rigidbody:
   m_ObjectHideFlags: 0
