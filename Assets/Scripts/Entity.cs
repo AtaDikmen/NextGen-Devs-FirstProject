@@ -59,7 +59,7 @@ public class Entity : MonoBehaviour, IDamagable
 
     protected virtual void Attack()
     {
-        transform.LookAt(target);
+        //transform.LookAt(target);
         
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
         Vector3 direction = (target.position - transform.position).normalized;
@@ -73,13 +73,12 @@ public class Entity : MonoBehaviour, IDamagable
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
+            bulletScript.targetTag = targetTag;
             bulletScript.damage = damage;
         }
-
-        Debug.Log(characterName + " is attacking " + target.name + " for " + damage + " damage.");
     }
 
-    
+
 
     private void OnDrawGizmos()
     {
@@ -93,8 +92,10 @@ public class Entity : MonoBehaviour, IDamagable
 
         if (health <= 0)
         {
-            // Dead
+            Debug.Log(characterName + " is Dead");
+
             isAlive = false;
+            Destroy(gameObject); // for now
         }
     }
 }

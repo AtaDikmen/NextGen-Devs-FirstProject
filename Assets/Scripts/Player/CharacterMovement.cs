@@ -61,6 +61,7 @@ public class CharacterMovement : MonoBehaviour
 
         // Rotate the character to face the movement direction
         Quaternion targetRotation = Quaternion.LookRotation(direction);
+
         rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * rotationSpeed * Time.deltaTime));
     }
 

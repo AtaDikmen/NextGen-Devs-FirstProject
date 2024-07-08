@@ -21,8 +21,8 @@ public class Rocket : MonoBehaviour
         {
             if (nearbyObject.CompareTag("Enemy"))
             {
-                // nearbyObject.GetComponent<Enemy>().TakeDamage(damage);
-                Destroy(nearbyObject.gameObject);
+                nearbyObject.gameObject.GetComponent<Entity>().TakeDamage(damage);
+                Destroy(gameObject);
             }
         }
 

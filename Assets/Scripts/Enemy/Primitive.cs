@@ -9,7 +9,7 @@ public class Primitive : Enemy
         characterName = "Primitive";
         damage = 15;
         attackSpeed = 1.0f;
-        health = 80.0f;
+        health = 100f;
         attackRadius = 3.0f;
     }
 
