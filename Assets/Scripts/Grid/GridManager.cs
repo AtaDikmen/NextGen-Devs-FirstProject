@@ -32,9 +32,10 @@ public class GridManager : Singleton<GridManager>
                     tilePrefab, 
                     position,
                     Quaternion.identity);
+                    
+                instatiatedTiles.Add(tempPrefab);
                 tempPrefab.transform.SetParent(transform, false);
                 
-                instatiatedTiles.Add(tempPrefab);
             }
         }
     }
