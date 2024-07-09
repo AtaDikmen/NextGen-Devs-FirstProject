@@ -6,6 +6,8 @@ public class Ally : Entity
 {
     private void Awake()
     {
+        animator = GetComponent<Animator>();
+
         targetTag = "Enemy";
 
         characterName = "Ally";
@@ -15,5 +17,4 @@ public class Ally : Entity
         attackRadius = 5.0f;
         nextAttackTime = 0f;
     }
-
 }

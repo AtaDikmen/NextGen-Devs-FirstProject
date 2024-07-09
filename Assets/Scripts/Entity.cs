@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour, IDamagable
 {
+    protected Animator animator;
+
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
 
@@ -16,6 +18,11 @@ public class Entity : MonoBehaviour, IDamagable
     protected Transform target;
     protected string targetTag;
     public bool isAlive = true;
+    public bool isAttacking;
+
+    private void Awake()
+    {
+    }
 
     void Update()
     {
@@ -54,15 +61,20 @@ public class Entity : MonoBehaviour, IDamagable
         else
         {
             target = null;
+            SetAttackAnim(false);
         }
     }
 
     protected virtual void Attack()
     {
-        //transform.LookAt(target);
-        
+        SetAttackAnim(true);
+
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
-        Vector3 direction = (target.position - transform.position).normalized;
+
+        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
@@ -77,6 +89,7 @@ public class Entity : MonoBehaviour, IDamagable
             bulletScript.damage = damage;
         }
     }
+
 
 
 
@@ -102,5 +115,14 @@ public class Entity : MonoBehaviour, IDamagable
     public virtual void OnDead()
     {
 
+    }
+
+    protected void SetAttackAnim(bool _isAttacking)
+    {
+        if (animator == null) return;
+
+        isAttacking = _isAttacking;
+
+        animator.SetBool("isAttacking",isAttacking);
     }
 }

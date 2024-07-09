@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class CharacterMovement : MonoBehaviour
 {
+    private Entity entity;
+    [SerializeField] private Animator animator;
+
     public float speed = 5.0f;
     public float rotationSpeed = 20.0f;
     private const int rotationConstant = 100;
@@ -12,6 +15,11 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 moveDirection;
     private float cameraDistance;
     public Button runButton;
+
+    private void Awake()
+    {
+       entity = GetComponent<Entity>();
+    }
 
     void Start()
     {
@@ -30,6 +38,10 @@ public class CharacterMovement : MonoBehaviour
         if (moveDirection != Vector3.zero)
         {
             MoveCharacter(moveDirection); // Apply movement and rotation every fixed update for smooth physics
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
     }
 
@@ -56,13 +68,18 @@ public class CharacterMovement : MonoBehaviour
 
     void MoveCharacter(Vector3 direction)
     {
+        animator.SetBool("isWalking", true);
+
         Vector3 movement = direction * speed * Time.deltaTime;
         rb.MovePosition(transform.position + movement);
 
-        // Rotate the character to face the movement direction
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * rotationSpeed * Time.deltaTime));
+        if (!entity.isAttacking)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            // Rotate the character to face the movement direction
+            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * rotationSpeed * Time.deltaTime));
+        }
     }
 
     public void Run()
