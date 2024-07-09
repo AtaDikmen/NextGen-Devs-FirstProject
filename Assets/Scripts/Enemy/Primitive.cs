@@ -19,5 +19,6 @@ public class Primitive : Enemy
         enemyAI.Stop();
         transform.LookAt(target);
         animator.SetTrigger("Attack");
+        base.Attack();
     }
 }

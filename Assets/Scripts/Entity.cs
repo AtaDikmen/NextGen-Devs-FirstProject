@@ -64,7 +64,7 @@ public class Entity : MonoBehaviour, IDamagable
     {
         //transform.LookAt(target);
         
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletPrefab.transform.rotation);
         Vector3 direction = (target.position - transform.position).normalized;
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
