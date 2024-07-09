@@ -16,6 +16,7 @@ public class Entity : MonoBehaviour, IDamagable
     protected Transform target;
     protected string targetTag;
     public bool isAlive = true;
+    public bool isTargetFound;
 
     void Update()
     {
@@ -50,10 +51,12 @@ public class Entity : MonoBehaviour, IDamagable
         if (closestEnemy != null)
         {
             target = closestEnemy;
+            isTargetFound = true;
         }
         else
         {
             target = null;
+            isTargetFound = false;
         }
     }
 
