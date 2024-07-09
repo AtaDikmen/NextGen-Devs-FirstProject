@@ -7,7 +7,8 @@ public class Vanguard : Ally
         characterName = "Vanguard";
         damage = 20;
         attackSpeed = 0.6f;
-        health = 80.0f;
+        maxHealth = 80.0f;
+        currentHealth = maxHealth;
         attackRadius = 4f;
     }
 
@@ -37,7 +38,7 @@ public class Vanguard : Ally
                 rb.AddForce(direction * 10f, ForceMode.Impulse);
             }
 
-            // Bullet'a zarar verme deðerini ata
+            // Bullet'a zarar verme deï¿½erini ata
             //Bullet bulletScript = bullet.GetComponent<Bullet>();
             //if (bulletScript != null)
             //{

@@ -11,7 +11,8 @@ public class Ally : Entity
         characterName = "Ally";
         damage = 10;
         attackSpeed = 1.0f;
-        health = 100.0f;
+        maxHealth = 100.0f;
+        currentHealth = maxHealth;
         attackRadius = 5.0f;
         nextAttackTime = 0f;
     }

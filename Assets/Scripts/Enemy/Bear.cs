@@ -16,7 +16,8 @@ public class Bear : Enemy
         characterName = "Bear";
         damage = 15;
         attackSpeed = 1.0f;
-        health = 100f;
+        maxHealth = 100.0f;
+        currentHealth = maxHealth;
         attackRadius = 2.0f;
     }
 

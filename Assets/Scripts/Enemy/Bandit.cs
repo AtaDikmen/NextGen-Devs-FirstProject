@@ -10,7 +10,8 @@ public class Bandit : Enemy
         characterName = "Bandit";
         damage = 15;
         attackSpeed = 1.0f;
-        health = 100f;
+        maxHealth = 100.0f;
+        currentHealth = maxHealth;
         attackRadius = 4.0f;
     }
 
