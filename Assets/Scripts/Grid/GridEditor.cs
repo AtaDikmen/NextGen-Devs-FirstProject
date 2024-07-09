@@ -15,6 +15,21 @@ public class GridEditor : Editor
             GridManager.Instance.InstantiateMap();
         }
 
+        if (GUILayout.Button(""))
+        {
+            
+        }
+        
+        if (GUILayout.Button(""))
+        {
+            
+        }        
+
+        if (GUILayout.Button(""))
+        {
+            
+        }
+
         if (GUILayout.Button("Delete Map"))
         {
             GridManager.Instance.DestroyMap();
