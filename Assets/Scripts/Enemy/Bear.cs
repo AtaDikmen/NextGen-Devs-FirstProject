@@ -24,6 +24,7 @@ public class Bear : Enemy
     {
         // Special attack of Bear
         enemyAI.Stop();
+        transform.LookAt(target);
         animator.SetTrigger("Attack");
         /* if (!isDashing)
          {
