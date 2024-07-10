@@ -18,12 +18,17 @@ public class Vanguard : Ally
 
     private void FireShotgun()
     {
+        OnShotSFX();
+
         int bulletCount = 5;
-        float spreadAngle = 100f;
+        float spreadAngle = 70f;
 
         Vector3 targetDirection = (target.position - transform.position).normalized;
         float angleStep = spreadAngle / (bulletCount - 1);
         float angleOffset = -spreadAngle / 2;
+
+        transform.rotation = Quaternion.LookRotation(new Vector3(targetDirection.x, 0, targetDirection.z));
+
 
         for (int i = 0; i < bulletCount; i++)
         {
@@ -37,12 +42,17 @@ public class Vanguard : Ally
                 rb.AddForce(direction * 10f, ForceMode.Impulse);
             }
 
-            // Bullet'a zarar verme deðerini ata
-            //Bullet bulletScript = bullet.GetComponent<Bullet>();
-            //if (bulletScript != null)
-            //{
-            //    bulletScript.damage = damage;
-            //}
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.damage = damage;
+                bulletScript.targetTag = targetTag;
+            }
         }
+    }
+
+    protected override void OnShotSFX()
+    {
+        audioManager.PlaySFX2D.Invoke("ShotShotgun", 0.15f, false);
     }
 }

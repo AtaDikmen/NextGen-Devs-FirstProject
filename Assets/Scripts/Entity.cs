@@ -6,6 +6,8 @@ using UnityEngine;
 public class Entity : MonoBehaviour, IDamagable
 {
     protected Animator animator;
+    [SerializeField] protected MyAudioManagerSO audioManager;
+
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
 
@@ -21,12 +23,14 @@ public class Entity : MonoBehaviour, IDamagable
     public bool isTargetFound;
     public bool isAttacking;
 
+
     void Update()
     {
         FindClosestEnemy();
 
         if (target != null && Time.time >= nextAttackTime)
         {
+
             Attack();
             nextAttackTime = Time.time + 1f / attackSpeed;
         }
@@ -66,6 +70,7 @@ public class Entity : MonoBehaviour, IDamagable
 
     protected virtual void Attack()
     {
+        OnShotSFX();
         SetAttackAnim(true);
 
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
@@ -114,6 +119,11 @@ public class Entity : MonoBehaviour, IDamagable
     }
 
     public virtual void OnDead()
+    {
+
+    }
+
+    protected virtual void OnShotSFX()
     {
 
     }

@@ -12,5 +12,11 @@ public class Rookie : Ally
     protected override void Attack()
     {
         base.Attack();
+        animator.SetTrigger("Shot");
+    }
+
+    protected override void OnShotSFX()
+    {
+        audioManager.PlaySFX2D.Invoke("ShotPistol", 0.15f, false);
     }
 }

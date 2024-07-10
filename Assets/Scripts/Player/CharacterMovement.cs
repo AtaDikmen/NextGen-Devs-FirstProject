@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +5,7 @@ using UnityEngine.UI;
 public class CharacterMovement : MonoBehaviour
 {
     private Entity entity;
-    [SerializeField] private Animator animator;
+    private Animator animator;
 
     public float speed = 5.0f;
     public float rotationSpeed = 20.0f;
@@ -18,7 +17,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void Awake()
     {
-       entity = GetComponent<Entity>();
+        entity = GetComponent<Entity>();
+        animator = GetComponent<Animator>();
     }
 
     void Start()

@@ -48,4 +48,15 @@ public class Soldier : Ally
         bulletsFired = 0;
         isReloading = false;
     }
+
+    protected override void SetAttackAnim(bool _isAttacking)
+    {
+        isAttacking = _isAttacking;
+        animator.SetBool("isAttacking", isAttacking);
+    }
+
+    protected override void OnShotSFX()
+    {
+        audioManager.PlaySFX2D.Invoke("ShotRifle", 0.15f, false);
+    }
 }

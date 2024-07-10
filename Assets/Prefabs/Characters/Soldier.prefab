@@ -1231,10 +1231,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70672636f368ba1469ed79904f5ede2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 11400000, guid: 7008ce408398712489accff38cbe61d1, type: 2}
   bulletPrefab: {fileID: 5134120758535130613, guid: d1076fa7a7c44a340a06a2e0e59b4952,
     type: 3}
   bulletSpawnPoint: {fileID: 6817410478055202646}
   isAlive: 0
+  isTargetFound: 0
   isAttacking: 0
 --- !u!114 &8671382253968517226
 MonoBehaviour:
@@ -1248,7 +1250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7866c4ed8905da4f873df552bbb934c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2372848676988042671}
   speed: 5
   rotationSpeed: 20
   runButton: {fileID: 0}
