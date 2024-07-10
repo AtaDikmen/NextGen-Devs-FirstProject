@@ -6,6 +6,8 @@ public class Ally : Entity
 {
     private void Awake()
     {
+        animator = GetComponent<Animator>();
+
         targetTag = "Enemy";
 
         characterName = "Ally";
@@ -16,4 +18,9 @@ public class Ally : Entity
         nextAttackTime = 0f;
     }
 
+    protected override void SetAttackAnim(bool _isAttacking)
+    {
+        isAttacking = _isAttacking;
+        animator.SetBool("isAttacking", isAttacking);
+    }
 }

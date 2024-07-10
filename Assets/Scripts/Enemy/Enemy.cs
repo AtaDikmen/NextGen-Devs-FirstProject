@@ -12,8 +12,6 @@ public class Enemy : Entity
 
     protected EnemyTypes enemyType;
 
-    protected Animator animator;
-
     private void Awake()
     {
         targetTag = "Player";
