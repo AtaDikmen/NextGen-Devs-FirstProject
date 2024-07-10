@@ -17,6 +17,8 @@ public class Primitive : Enemy
     protected override void Attack()
     {
         enemyAI.Stop();
+        transform.LookAt(target);
+        animator.SetTrigger("Attack");
         base.Attack();
     }
 }

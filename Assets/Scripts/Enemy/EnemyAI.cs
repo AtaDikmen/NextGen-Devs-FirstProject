@@ -9,22 +9,27 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float patrolRadius = 10.0f;
     [SerializeField] private float chaseRadius = 5;
     private NavMeshAgent agent;
+    private Animator animator;
+    private Entity entity;
     private float initialSpeed;
-    private bool isPatrolling;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        entity = GetComponent<Entity>();
         initialSpeed = agent.speed;
     }
 
     private void Update()
     {
-         FindPlayerToChase();
+        FindPlayerToChase();
     }
 
     private void FindPlayerToChase()
     {
+        if(entity.isTargetFound) return;
+
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, chaseRadius);
         float closestDistance = Mathf.Infinity;
         Transform closestEnemy = null;
@@ -44,6 +49,10 @@ public class EnemyAI : MonoBehaviour
          
         if (closestEnemy != null)
         {
+            if (animator) 
+            {
+                animator.SetTrigger("Run");
+            }
             agent.SetDestination(closestEnemy.position);
         }
         else
@@ -52,8 +61,8 @@ public class EnemyAI : MonoBehaviour
         }
     }
     public void Stop()
-    {
-        isPatrolling = false;
+    {        
+        //isPatrolling = false;
         agent.isStopped = true;
         agent.speed = 0;
     }
@@ -61,8 +70,11 @@ public class EnemyAI : MonoBehaviour
     public void Patrol()
     {
         if (!agent.isStopped && agent.remainingDistance > agent.stoppingDistance) return;
-        
-        isPatrolling = true;
+        if (animator)
+        {
+            animator.SetTrigger("Walk");
+        }
+        //isPatrolling = true;
         agent.isStopped = false;
         agent.speed = initialSpeed;
         agent.SetDestination(RandomNavmeshLocation());

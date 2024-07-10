@@ -12,6 +12,8 @@ public class Enemy : Entity
 
     protected EnemyTypes enemyType;
 
+    protected Animator animator;
+
     private void Awake()
     {
         targetTag = "Player";
@@ -24,7 +26,9 @@ public class Enemy : Entity
         nextAttackTime = 0f;
 
         enemyAI = GetComponent<EnemyAI>();
+        animator = GetComponent<Animator>();
     }
+
 
     public override void OnDead()
     {

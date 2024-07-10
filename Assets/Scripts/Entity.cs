@@ -16,6 +16,7 @@ public class Entity : MonoBehaviour, IDamagable
     protected Transform target;
     protected string targetTag;
     public bool isAlive = true;
+    public bool isTargetFound;
 
     void Update()
     {
@@ -50,10 +51,12 @@ public class Entity : MonoBehaviour, IDamagable
         if (closestEnemy != null)
         {
             target = closestEnemy;
+            isTargetFound = true;
         }
         else
         {
             target = null;
+            isTargetFound = false;
         }
     }
 
@@ -61,7 +64,7 @@ public class Entity : MonoBehaviour, IDamagable
     {
         //transform.LookAt(target);
         
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletPrefab.transform.rotation);
         Vector3 direction = (target.position - transform.position).normalized;
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
