@@ -37,8 +37,8 @@ public class GridManager : Singleton<GridManager>
                     Quaternion.identity
                     );
 
-                instatiatedTiles.Add(tempPrefab);
                 tempPrefab.transform.SetParent(transform, false);
+                instatiatedTiles.Add(tempPrefab);
 
                 if (x < borderSize || x > width - borderSize - 1 || z < borderSize || z > height - borderSize -1)
                 {
