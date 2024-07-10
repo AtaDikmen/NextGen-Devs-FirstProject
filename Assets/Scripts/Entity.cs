@@ -14,6 +14,9 @@ public class Entity : MonoBehaviour, IDamagable
     protected float maxHealth;
     protected float attackRadius;
     protected float nextAttackTime;
+    protected float speed;
+    protected float rotationSpeed;
+    protected float runMultiplier;
     protected Transform target;
     protected string targetTag;
     public bool isAlive = true;
@@ -114,5 +117,14 @@ public class Entity : MonoBehaviour, IDamagable
     public virtual void OnDead()
     {
 
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+    public float GetRotationSpeed()
+    {
+        return rotationSpeed;
     }
 }

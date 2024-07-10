@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float rotationSpeed = 20.0f;
+    //Adds character movement to the assigned game object
+    public Entity character;
     private const int rotationConstant = 100;
     private Rigidbody rb;
     private Vector3 moveDirection;
     private float cameraDistance;
-    public Button runButton;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -51,40 +49,18 @@ public class CharacterMovement : MonoBehaviour
             {
                 moveDirection = Vector3.zero;
                 cameraDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
-                Debug.Log(cameraDistance);
             }
         }
     }
 
     void MoveCharacter(Vector3 direction)
     {
-        Vector3 movement = direction * speed * Time.deltaTime;
+        Vector3 movement = direction * character.GetSpeed() * Time.deltaTime;
         rb.MovePosition(transform.position + movement);
 
         // Rotate the character to face the movement direction
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * rotationSpeed * Time.deltaTime));
-    }
-
-    public void Run()
-    {
-        StartCoroutine(RunCoroutine());
-    }
-
-    private IEnumerator RunCoroutine()
-    {
-        // Double the speed
-        speed *= 2;
-        // Disable the run button
-        runButton.interactable = false;
-
-        // Wait for 5 seconds
-        yield return new WaitForSeconds(5);
-
-        // Reset the speed
-        speed /= 2;
-        // Re-enable the run button
-        runButton.interactable = true;
+        rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * character.GetRotationSpeed() * Time.deltaTime));
     }
 }
