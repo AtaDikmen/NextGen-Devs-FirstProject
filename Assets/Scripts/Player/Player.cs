@@ -8,6 +8,8 @@ public class Player : Entity, IRunnable
     private bool isRunning = false;
     private void Awake()
     {
+        animator = GetComponent<Animator>();
+
         targetTag = "Enemy";
 
         characterName = "Player";
@@ -64,5 +66,11 @@ public class Player : Entity, IRunnable
                 observer.StopRunning();
             }
         }
+    }
+
+    protected override void SetAttackAnim(bool _isAttacking)
+    {
+        if(_isAttacking)
+            animator.SetTrigger("Shot");
     }
 }

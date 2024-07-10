@@ -19,6 +19,7 @@ public class Ally : Entity, IRunnable
         attackRadius = 5.0f;
         nextAttackTime = 0f;
         speed = 5f;
+        rotationSpeed = 20f;
         runMultiplier = 2f;
     }
 

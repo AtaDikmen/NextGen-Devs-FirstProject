@@ -1,22 +1,19 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterMovement : MonoBehaviour
 {
     //Adds character movement to the assigned game object
-    public Entity character;
+    private Entity character;
     private Animator animator;
 
     private const int rotationConstant = 100;
     private Rigidbody rb;
     private Vector3 moveDirection;
     private float cameraDistance;
-    public Button runButton;
 
     private void Awake()
     {
-        entity = GetComponent<Entity>();
+        character = GetComponent<Entity>();
         animator = GetComponent<Animator>();
     }
 
@@ -72,20 +69,19 @@ public class CharacterMovement : MonoBehaviour
     {
         animator.SetBool("isWalking", true);
 
-        Vector3 movement = direction * speed * Time.deltaTime;
         Vector3 movement = direction * character.GetSpeed() * Time.deltaTime;
         rb.MovePosition(transform.position + movement);
 
 
-        if (!entity.isAttacking)
+        if (!character.isAttacking)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             // Rotate the character to face the movement direction
-            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * rotationSpeed * Time.deltaTime));
+            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * character.GetRotationSpeed() * Time.deltaTime));
         }
     }
 
-    
+
 
     private void SetAnimatorVariables()
     {

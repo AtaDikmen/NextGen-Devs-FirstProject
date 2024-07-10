@@ -7,7 +7,8 @@ public class Vanguard : Ally
         characterName = "Vanguard";
         damage = 20;
         attackSpeed = 0.6f;
-        health = 80.0f;
+        maxHealth = 80.0f;
+        currentHealth = maxHealth;
         attackRadius = 4f;
     }
 

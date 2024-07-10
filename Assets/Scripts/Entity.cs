@@ -144,6 +144,7 @@ public class Entity : MonoBehaviour, IDamagable
     {
         return speed;
     }
+
     public float GetRotationSpeed()
     {
         return rotationSpeed;
