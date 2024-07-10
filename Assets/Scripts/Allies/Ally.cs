@@ -17,4 +17,10 @@ public class Ally : Entity
         attackRadius = 5.0f;
         nextAttackTime = 0f;
     }
+
+    protected override void SetAttackAnim(bool _isAttacking)
+    {
+        isAttacking = _isAttacking;
+        animator.SetBool("isAttacking", isAttacking);
+    }
 }

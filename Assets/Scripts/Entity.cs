@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour, IDamagable
 {
+    protected Animator animator;
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
 
@@ -17,6 +19,7 @@ public class Entity : MonoBehaviour, IDamagable
     protected string targetTag;
     public bool isAlive = true;
     public bool isTargetFound;
+    public bool isAttacking;
 
     void Update()
     {
@@ -57,15 +60,20 @@ public class Entity : MonoBehaviour, IDamagable
         {
             target = null;
             isTargetFound = false;
+            SetAttackAnim(false);
         }
     }
 
     protected virtual void Attack()
     {
-        //transform.LookAt(target);
-        
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletPrefab.transform.rotation);
-        Vector3 direction = (target.position - transform.position).normalized;
+        SetAttackAnim(true);
+
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+
+        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
@@ -81,7 +89,10 @@ public class Entity : MonoBehaviour, IDamagable
         }
     }
 
-
+    protected virtual void SetAttackAnim(bool _isAttacking)
+    {
+        
+    }
 
     private void OnDrawGizmos()
     {

@@ -1352,6 +1352,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 5184158722413333125}
   isAlive: 0
   isTargetFound: 0
+  isAttacking: 0
 --- !u!1 &6729244686810924346
 GameObject:
   m_ObjectHideFlags: 0

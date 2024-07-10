@@ -30,6 +30,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
+        SetAnimatorVariables();
         HandleTouchInput(); // Handle touch input every frame
     }
 
@@ -63,6 +64,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 moveDirection = Vector3.zero;
             }
+
         }
     }
 
@@ -101,5 +103,14 @@ public class CharacterMovement : MonoBehaviour
         speed /= 2;
         // Re-enable the run button
         runButton.interactable = true;
+    }
+
+    private void SetAnimatorVariables()
+    {
+        float xVelocity = Vector3.Dot(moveDirection.normalized, transform.right);
+        float zVelocity = Vector3.Dot(moveDirection.normalized, transform.forward);
+
+        animator.SetFloat("xVelocity", xVelocity, .1f, Time.deltaTime);
+        animator.SetFloat("zVelocity", zVelocity, .1f, Time.deltaTime);
     }
 }
