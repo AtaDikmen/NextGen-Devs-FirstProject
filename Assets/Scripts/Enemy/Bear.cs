@@ -24,17 +24,20 @@ public class Bear : Enemy
     {
         // Special attack of Bear
         enemyAI.Stop();
-
-        if (!isDashing)
-        {
-            isDashing = true;
-            StartCoroutine(Dash());
-        }
+        transform.LookAt(target);
+        animator.SetTrigger("Attack");
+        /* if (!isDashing)
+         {
+             isDashing = true;
+             StartCoroutine(Dash());
+         }*/
     }
 
     IEnumerator Dash()
     {
-        Vector3 targetPosition = target.transform.position;
+        //transform.LookAt(target);
+
+        /*Vector3 targetPosition = target.transform.position;
         float dashTime = 0.2f;
         float elapsedTime = 0;
         initialPosition = transform.position;
@@ -48,13 +51,14 @@ public class Bear : Enemy
 
         elapsedTime = 0;
 
-        while (elapsedTime < dashCooldown)
+        while (elapsedTime < dashTime)
         {
-            transform.position = Vector3.Lerp(transform.position, initialPosition, elapsedTime / dashCooldown);
+            transform.position = Vector3.Lerp(transform.position, initialPosition, elapsedTime / dashTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
-        isDashing = false;
+        
+        isDashing = false;*/
+        yield return null;
     }
 }

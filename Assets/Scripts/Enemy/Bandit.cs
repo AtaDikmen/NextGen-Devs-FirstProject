@@ -17,6 +17,7 @@ public class Bandit : Enemy
     protected override void Attack()
     {
         enemyAI.Stop();
+        transform.LookAt(target);
         base.Attack();
     }
 }
