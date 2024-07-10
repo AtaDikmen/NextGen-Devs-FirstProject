@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponentInChildren<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         // Set the initial distance from the camera to the character
         cameraDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
     }
@@ -50,6 +50,8 @@ public class CharacterMovement : MonoBehaviour
             if (touch.phase == TouchPhase.Ended)
             {
                 moveDirection = Vector3.zero;
+                cameraDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+                Debug.Log(cameraDistance);
             }
         }
     }
