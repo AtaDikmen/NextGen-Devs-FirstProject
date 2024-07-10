@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: bc3e1f96782979147b7059faa46062f9
+<<<<<<<< HEAD:Assets/Prefabs/UI.meta
+guid: b60a3e03e26566d4686eef58eba2a254
+========
+guid: 11b8f0bdfd1305541a471de35b6fba0c
+>>>>>>>> origin/healthbars:Assets/Scenes/CanScene.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

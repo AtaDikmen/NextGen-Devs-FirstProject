@@ -14,12 +14,17 @@ public class Entity : MonoBehaviour, IDamagable
     protected string characterName;
     protected int damage;
     protected float attackSpeed;
-    protected float health;
+    protected float currentHealth;
+    protected float maxHealth;
     protected float attackRadius;
     protected float nextAttackTime;
+    protected float speed;
+    protected float rotationSpeed;
+    protected float runMultiplier;
     protected Transform target;
     protected string targetTag;
     public bool isAlive = true;
+    public HealthBar healthBar;
     public bool isTargetFound;
     public bool isAttacking;
 
@@ -107,15 +112,22 @@ public class Entity : MonoBehaviour, IDamagable
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-
-        if (health <= 0)
+        currentHealth -= damage;
+        UpdateHealth(currentHealth, maxHealth);
+        if (currentHealth <= 0)
         {
             Debug.Log(characterName + " is Dead");
             OnDead();
             isAlive = false;
             Destroy(gameObject); // for now
         }
+    }
+
+    public void UpdateHealth(float currentHealth, float maxHealth)
+    {
+        healthBar.ShowHealthBarTemporarily();
+        float healthNormalized = currentHealth / maxHealth;
+        healthBar.SetHealth(healthNormalized);
     }
 
     public virtual void OnDead()
@@ -126,5 +138,14 @@ public class Entity : MonoBehaviour, IDamagable
     protected virtual void OnShotSFX()
     {
 
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+    public float GetRotationSpeed()
+    {
+        return rotationSpeed;
     }
 }

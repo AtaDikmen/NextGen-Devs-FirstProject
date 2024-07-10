@@ -13,7 +13,8 @@ public class Soldier : Ally
         characterName = "Soldier";
         damage = 10;
         attackSpeed = 4f;
-        health = 100f;
+        maxHealth = 100.0f;
+        currentHealth = maxHealth;
         attackRadius = 7.0f;
     }
     
