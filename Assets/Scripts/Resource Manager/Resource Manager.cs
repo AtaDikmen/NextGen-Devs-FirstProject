@@ -14,21 +14,16 @@ public class ResourceManager : Singleton<ResourceManager>
     private int currentWood;
     private int currentGold;
 
-    private void Awake() {
-        base.Awake();
+    private void Update()
+    {
         currentWood = woodStart;
-        currentGold = goldStart;    
+        currentGold = goldStart;
     }
-
-    private void Update() {
-        woodResource.text = "Wood: " + currentWood;
-        goldResource.text = "Gold: " + currentGold;
-    }
-
 
     public void AddWood()
     {
         currentWood += Random.Range(woodRange / 2, woodRange);
+        woodResource.text = currentWood.ToString();
     }
 
     public void SubWood(int woodAmount)
@@ -42,12 +37,13 @@ public class ResourceManager : Singleton<ResourceManager>
     public void AddGold(int goldAmount)
     {
         currentGold += goldAmount;
+        goldResource.text = currentGold.ToString();
     }
 
     public void SubGold(int goldAmount)
     {
         if (currentGold <= 0)
-            return;        
+            return;
         goldAmount = 1;
         currentGold -= goldAmount;
     }

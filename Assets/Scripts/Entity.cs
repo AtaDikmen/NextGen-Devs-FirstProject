@@ -1,21 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour, IDamagable
 {
+    protected Animator animator;
+    [SerializeField] protected MyAudioManagerSO audioManager;
+
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
 
     protected string characterName;
     protected int damage;
     protected float attackSpeed;
-    protected float health;
+    protected float currentHealth;
+    protected float maxHealth;
     protected float attackRadius;
     protected float nextAttackTime;
+    protected float speed;
+    protected float rotationSpeed;
+    protected float runMultiplier;
     protected Transform target;
     protected string targetTag;
     public bool isAlive = true;
+    public HealthBar healthBar;
+    public bool isTargetFound;
+    public bool isAttacking;
+
 
     void Update()
     {
@@ -23,6 +35,7 @@ public class Entity : MonoBehaviour, IDamagable
 
         if (target != null && Time.time >= nextAttackTime)
         {
+
             Attack();
             nextAttackTime = Time.time + 1f / attackSpeed;
         }
@@ -50,19 +63,27 @@ public class Entity : MonoBehaviour, IDamagable
         if (closestEnemy != null)
         {
             target = closestEnemy;
+            isTargetFound = true;
         }
         else
         {
             target = null;
+            isTargetFound = false;
+            SetAttackAnim(false);
         }
     }
 
     protected virtual void Attack()
     {
-        //transform.LookAt(target);
-        
+        OnShotSFX();
+        SetAttackAnim(true);
+
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
-        Vector3 direction = (target.position - transform.position).normalized;
+
+        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
@@ -78,7 +99,10 @@ public class Entity : MonoBehaviour, IDamagable
         }
     }
 
-
+    protected virtual void SetAttackAnim(bool _isAttacking)
+    {
+        
+    }
 
     private void OnDrawGizmos()
     {
@@ -88,9 +112,9 @@ public class Entity : MonoBehaviour, IDamagable
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-
-        if (health <= 0)
+        currentHealth -= damage;
+        UpdateHealth(currentHealth, maxHealth);
+        if (currentHealth <= 0)
         {
             Debug.Log(characterName + " is Dead");
             OnDead();
@@ -99,8 +123,30 @@ public class Entity : MonoBehaviour, IDamagable
         }
     }
 
+    public void UpdateHealth(float currentHealth, float maxHealth)
+    {
+        healthBar.ShowHealthBarTemporarily();
+        float healthNormalized = currentHealth / maxHealth;
+        healthBar.SetHealth(healthNormalized);
+    }
+
     public virtual void OnDead()
     {
 
+    }
+
+    protected virtual void OnShotSFX()
+    {
+
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public float GetRotationSpeed()
+    {
+        return rotationSpeed;
     }
 }

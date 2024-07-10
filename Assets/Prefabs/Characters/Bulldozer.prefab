@@ -154,10 +154,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797c41760bbac6643a079afe4bd905a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   bulletPrefab: {fileID: 5134120758535130613, guid: d1076fa7a7c44a340a06a2e0e59b4952,
     type: 3}
   bulletSpawnPoint: {fileID: 6542518336059147453}
   isAlive: 0
+  isTargetFound: 0
+  isAttacking: 0
   rocketPrefab: {fileID: 945219914928370525, guid: 0efbc2fb92885a4419e4dd071a277889,
     type: 3}
 --- !u!54 &1380008515939106589

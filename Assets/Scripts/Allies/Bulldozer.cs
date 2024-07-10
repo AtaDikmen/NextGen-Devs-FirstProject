@@ -10,7 +10,8 @@ public class Bulldozer : Ally
         characterName = "Bulldozer";
         damage = 100;
         attackSpeed = 0.1f;
-        health = 150.0f;
+        maxHealth = 150.0f;
+        currentHealth = maxHealth;
         attackRadius = 10.0f;
     }
 
