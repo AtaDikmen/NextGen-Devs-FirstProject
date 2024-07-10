@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 public enum ObjectType
 {
-    Empty, Tree1, Tree2, Tree3
+    Empty, Tree1, Tree2, Tree3, BanditCamp 
 };
 
 public class Tile : MonoBehaviour
@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private ObjectType objectType;
     [SerializeField] private List<GameObject> prefabList;
     private int objectNumber;
+    [SerializeField] private bool isBanditCamp = false;
 
     private void Awake() {
         objectType = ObjectType.Empty;
