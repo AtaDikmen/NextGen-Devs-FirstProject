@@ -2,6 +2,9 @@ public class Rookie : Ally
 {
     void Start()
     {
+        allyType = AllyType.rookie;
+
+
         characterName = "Rookie";
         damage = 15;
         attackSpeed = 1.0f;

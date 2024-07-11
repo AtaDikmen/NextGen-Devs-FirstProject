@@ -17,16 +17,26 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private GameObject[] weapons;
 
+    [SerializeField] private GameObject[] allies;
+
 
     void Start()
     {
         currentWeapon = WeaponType.pistol;
-
     }
 
     void Update()
     {
        
+    }
+
+    public void AllyJoinGroup(AllyType _allyType)
+    {
+        foreach (var ally in allies)
+        {
+            if (ally.GetComponentInChildren<Ally>().allyType == _allyType)
+                ally.SetActive(true);
+        }
     }
 
     public void ChangeWeapon(string weaponType)

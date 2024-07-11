@@ -2,8 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AllyType
+{
+    rookie,
+    soldier,
+    vanguard,
+    bulldozer
+}
+
 public class Ally : Entity
 {
+    public AllyType allyType;
+
+    protected int allyCount;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();

@@ -4,6 +4,8 @@ public class Vanguard : Ally
 {
     void Start()
     {
+        allyType = AllyType.vanguard;
+
         characterName = "Vanguard";
         damage = 20;
         attackSpeed = 0.6f;

@@ -10,6 +10,9 @@ public class Soldier : Ally
 
     void Start()
     {
+        allyType = AllyType.soldier;
+
+
         characterName = "Soldier";
         damage = 1;
         attackSpeed = 4f;
