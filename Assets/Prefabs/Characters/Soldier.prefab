@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 11400000, guid: 7008ce408398712489accff38cbe61d1, type: 2}
-  bulletPrefab: {fileID: 5134120758535130613, guid: d1076fa7a7c44a340a06a2e0e59b4952,
+  bulletPrefab: {fileID: 5134120758535130613, guid: ad21b55484b51bc41976db5993a12360,
     type: 3}
   bulletSpawnPoint: {fileID: 6817410478055202646}
   isAlive: 1
