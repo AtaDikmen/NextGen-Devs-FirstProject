@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform playerParent;
     [SerializeField] private Transform mainPlayer;
     public bool isEnemyWavePhase;
-    private float countdownTime = 10f; // 1.5 minutes in seconds
+    private float countdownTime = 30f; // 1.5 minutes in seconds
+    private bool isPlayerInsideBase = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +31,13 @@ public class GameManager : MonoBehaviour
         }
         if(!mainPlayer)
         {
-            Debug.Log("Game Over");
+            GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
     }
 
     private IEnumerator StartCountdown(float duration)
@@ -46,6 +52,11 @@ public class GameManager : MonoBehaviour
         UpdateTimerText(0);
         isEnemyWavePhase = true;
         timer.SetActive(false);
+
+        if(!isPlayerInsideBase)
+        {
+            GameOver();
+        }
     }
 
     private void UpdateTimerText(float time)
@@ -71,4 +82,10 @@ public class GameManager : MonoBehaviour
         }
         return false;
     }
+
+    public void SetPlayerInsideBase(bool value)
+    {
+        isPlayerInsideBase = value;
+    }
+
 }

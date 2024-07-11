@@ -14,6 +14,7 @@ public class Player : Entity
     private bool isReloading = false;
 
     [SerializeField] private GameObject[] bulletPrefabs;
+    [SerializeField] private GameManager gameManager;
 
     private void Awake()
     {
@@ -38,6 +39,20 @@ public class Player : Entity
         foreach (var ally in FindObjectsOfType<Ally>())
         {
             allies.Add(ally);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Base"))
+        {
+            Debug.Log("Player entered base");
+            gameManager.SetPlayerInsideBase(true);
+        }
+        else if(other.CompareTag("Outside"))
+        {
+            Debug.Log("Player left base");
+            gameManager.SetPlayerInsideBase(false);
         }
     }
 
