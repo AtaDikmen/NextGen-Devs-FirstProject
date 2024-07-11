@@ -23,6 +23,6 @@ public class Bear : Enemy
         enemyAI.Stop();
         transform.LookAt(target);
         animator.SetTrigger("Attack");
-       
+        target.GetComponent<Entity>().TakeDamage(damage);
     }
 }

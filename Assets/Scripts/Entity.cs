@@ -41,7 +41,7 @@ public class Entity : MonoBehaviour, IDamagable
         }
     }
 
-    protected void FindClosestEnemy()
+    protected virtual void FindClosestEnemy()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
         float closestDistance = Mathf.Infinity;
@@ -49,13 +49,30 @@ public class Entity : MonoBehaviour, IDamagable
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag(targetTag) || hitCollider.CompareTag("Tree"))
+            if (hitCollider.CompareTag(targetTag))
             {
                 float distanceToEnemy = Vector3.Distance(transform.position, hitCollider.transform.position);
                 if (distanceToEnemy < closestDistance)
                 {
                     closestDistance = distanceToEnemy;
                     closestEnemy = hitCollider.transform;
+                }
+            }
+        }
+
+        if (closestEnemy == null)
+        {
+            closestDistance = Mathf.Infinity; 
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.CompareTag("Tree"))
+                {
+                    float distanceToEnemy = Vector3.Distance(transform.position, hitCollider.transform.position);
+                    if (distanceToEnemy < closestDistance)
+                    {
+                        closestDistance = distanceToEnemy;
+                        closestEnemy = hitCollider.transform;
+                    }
                 }
             }
         }
@@ -124,7 +141,14 @@ public class Entity : MonoBehaviour, IDamagable
             Debug.Log(characterName + " is Dead");
             OnDead();
             isAlive = false;
-            Destroy(gameObject); // setActive() for x seconds
+            if(gameObject.name == "General")
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject.transform.parent.gameObject); // setActive() for x seconds
+            }
         }
     }
 

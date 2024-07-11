@@ -29,6 +29,36 @@ public class Enemy : Entity
         animator = GetComponent<Animator>();
     }
 
+    protected override void FindClosestEnemy()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
+        float closestDistance = Mathf.Infinity;
+        Transform closestEnemy = null;
+
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag(targetTag))
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, hitCollider.transform.position);
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = hitCollider.transform;
+                }
+            }
+        }
+
+        if (closestEnemy != null)
+        {
+            target = closestEnemy;
+            isTargetFound = true;
+        }
+        else
+        {
+            target = null;
+            isTargetFound = false;
+        }
+    }
 
     public override void OnDead()
     {

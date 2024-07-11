@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Tree
   - TreeInner
+  - Base
+  - Outside
   layers:
   - Default
   - TransparentFX
