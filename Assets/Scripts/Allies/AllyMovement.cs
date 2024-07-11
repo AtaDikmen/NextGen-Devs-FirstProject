@@ -40,6 +40,17 @@ public class AllyMovement : Movement
         FollowTarget();
     }
 
+    private void SetAnimatorVariables()
+    {
+        if (transform.parent.name == "Soldier")
+        {
+            float xVelocity = Vector3.Dot(moveDirection.normalized, transform.right);
+            float zVelocity = Vector3.Dot(moveDirection.normalized, transform.forward);
+            animator.SetFloat("xVelocity", xVelocity, .1f, Time.deltaTime);
+            animator.SetFloat("zVelocity", zVelocity, .1f, Time.deltaTime);
+        }
+    }
+
     private void FollowTarget()
     {
         animator.SetBool("isWalking", true);

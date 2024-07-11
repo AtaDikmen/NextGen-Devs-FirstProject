@@ -86,7 +86,8 @@ public class Entity : MonoBehaviour, IDamagable
 
         transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
-        bullet.transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        bullet.transform.rotation = lookRotation * Quaternion.Euler(-90, 0, 0);
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)

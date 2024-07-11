@@ -6,9 +6,6 @@ public class Bear : Enemy
 {
     public float dashSpeed = 15f;
     public float dashCooldown = 2f;
-    private float lastDashTime = -10f;
-    private Vector3 initialPosition;
-    private bool isDashing;
 
     void Start()
     {
@@ -23,43 +20,9 @@ public class Bear : Enemy
 
     protected override void Attack()
     {
-        // Special attack of Bear
         enemyAI.Stop();
         transform.LookAt(target);
         animator.SetTrigger("Attack");
-        /* if (!isDashing)
-         {
-             isDashing = true;
-             StartCoroutine(Dash());
-         }*/
-    }
-
-    IEnumerator Dash()
-    {
-        //transform.LookAt(target);
-
-        /*Vector3 targetPosition = target.transform.position;
-        float dashTime = 0.2f;
-        float elapsedTime = 0;
-        initialPosition = transform.position;
-
-        while (elapsedTime < dashTime)
-        {
-            transform.position = Vector3.Lerp(transform.position, targetPosition, elapsedTime / dashTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        elapsedTime = 0;
-
-        while (elapsedTime < dashTime)
-        {
-            transform.position = Vector3.Lerp(transform.position, initialPosition, elapsedTime / dashTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        
-        isDashing = false;*/
-        yield return null;
+       
     }
 }

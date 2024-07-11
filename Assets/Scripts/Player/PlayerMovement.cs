@@ -24,7 +24,6 @@ public class PlayerMovement : Movement
 
     void Update()
     {
-        SetAnimatorVariables();
         HandleTouchInput(); // Handle touch input every frame
     }
 
