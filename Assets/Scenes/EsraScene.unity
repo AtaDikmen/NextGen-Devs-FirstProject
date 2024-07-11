@@ -1124,8 +1124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d01ffa7d15da74da5f4128206772c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 1421533814}
-  timerText: {fileID: 1066573857}
+  timer: {fileID: 0}
+  timerText: {fileID: 0}
   enemyParent: {fileID: 1360623119}
   playerParent: {fileID: 167277229}
   isEnemyWavePhase: 0
@@ -1144,18 +1144,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1066573857 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4237739239274137672, guid: c0f1b3e4fc3966648b197438954da754,
-    type: 3}
-  m_PrefabInstance: {fileID: 670908632}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1360623118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,12 +1197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1421533814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3479264407095578623, guid: c0f1b3e4fc3966648b197438954da754,
-    type: 3}
-  m_PrefabInstance: {fileID: 670908632}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1543542566
 GameObject:
   m_ObjectHideFlags: 0

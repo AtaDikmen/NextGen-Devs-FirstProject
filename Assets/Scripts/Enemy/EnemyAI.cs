@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
 
     private void FindPlayerToChase()
     {
-        if(entity.isTargetFound) return;
+        if (entity.isTargetFound) return;
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, chaseRadius);
         float closestDistance = Mathf.Infinity;
@@ -59,7 +59,7 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
-         
+
         if (closestEnemy != null)
         {
             animator.SetTrigger("Run");
@@ -71,7 +71,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
     public void Stop()
-    {        
+    {
         //isPatrolling = false;
         agent.isStopped = true;
         agent.speed = 0;
@@ -89,12 +89,12 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(RandomNavmeshLocation());
     }
 
-    private Vector3 RandomNavmeshLocation() 
-    { 
+    private Vector3 RandomNavmeshLocation()
+    {
         Vector3 randomPoint = (Random.insideUnitSphere * patrolRadius) + transform.position;
         NavMeshHit hit;
 
-        if(NavMesh.SamplePosition(randomPoint, out hit, 1f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randomPoint, out hit, 1f, NavMesh.AllAreas))
         {
             Debug.DrawRay(hit.position, Vector3.up, Color.blue, 1.0f);
             return hit.position;
