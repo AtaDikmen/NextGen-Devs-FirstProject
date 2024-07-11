@@ -10,11 +10,13 @@ public class Tree : MonoBehaviour, IDamagable
 
     MeshRenderer meshRenderer;
     BoxCollider boxCollider;
+    BoxCollider boxColliderInChildren;
     private int woodRange;
     private void Awake() {
         woodRange = ResourceManager.Instance.woodRange;
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
+        boxColliderInChildren = GetComponentInChildren<BoxCollider>();
         currentHealth = maxHealth;
     }
 
@@ -39,9 +41,11 @@ public class Tree : MonoBehaviour, IDamagable
     {
         meshRenderer.enabled = false;
         boxCollider.enabled = false;
+        boxColliderInChildren.enabled = false;
         yield return new WaitForSeconds(inactiveDuration);
         meshRenderer.enabled = true;
         boxCollider.enabled = true;
+        boxColliderInChildren.enabled = true;
         currentHealth = maxHealth;
     }
 }
