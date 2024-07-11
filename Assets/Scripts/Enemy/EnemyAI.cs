@@ -29,10 +29,10 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameManager.isEnemyWavePhase && playerParent.childCount != 0)
         {
-            Debug.Log("Enemy Wave Phase " + playerParent.childCount);
+            Debug.Log("Enemy Wave Phase "+ playerParent.childCount);
             agent.SetDestination(SetPlayerPosition());
         }
-        else
+        else 
         {
             Debug.Log("Patrol Phase");
             FindPlayerToChase();
@@ -103,12 +103,12 @@ public class EnemyAI : MonoBehaviour
         return transform.position;
     }
 
-    private Vector3 SetPlayerPosition()
+    private Vector3 SetPlayerPosition() 
     {
         if (!selectedPlayer)
         {
             selectedPlayer = playerParent.GetChild(Random.Range(0, playerParent.childCount));
-        }
+        }   
 
         return selectedPlayer.position;
     }

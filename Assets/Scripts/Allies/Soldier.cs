@@ -26,13 +26,11 @@ public class Soldier : Ally
         {
             if (bulletsFired < maxBullets)
             {
-                base.Attack();
                 bulletsFired++;
-                Debug.Log(bulletsFired);
+                base.Attack();
             }
             else
             {
-                Debug.Log("RELOAD");
                 StartCoroutine(Reload());
                 isAttacking = false;
             }
