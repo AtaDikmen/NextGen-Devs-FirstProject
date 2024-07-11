@@ -27,14 +27,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.isEnemyWavePhase && playerParent.childCount != 0)
+        if (gameManager.isEnemyWavePhase && gameManager.IsAnyPlayerAlive())
         {
-            Debug.Log("Enemy Wave Phase "+ playerParent.childCount);
             agent.SetDestination(SetPlayerPosition());
         }
         else 
         {
-            Debug.Log("Patrol Phase");
             FindPlayerToChase();
         }
     }
@@ -107,9 +105,12 @@ public class EnemyAI : MonoBehaviour
     {
         if (!selectedPlayer)
         {
-            selectedPlayer = playerParent.GetChild(Random.Range(0, playerParent.childCount));
+            do
+            {
+                selectedPlayer = playerParent.GetChild(Random.Range(0, playerParent.childCount));
+            } 
+            while (!selectedPlayer.gameObject.activeSelf);
         }   
-
         return selectedPlayer.position;
     }
 

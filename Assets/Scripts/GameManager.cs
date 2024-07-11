@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Transform enemyParent;
     [SerializeField] private Transform playerParent;
+    [SerializeField] private Transform mainPlayer;
     public bool isEnemyWavePhase;
     private float countdownTime = 10f; // 1.5 minutes in seconds
 
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartCountdown(countdownTime));
             timer.SetActive(true);
         }
-        if(playerParent.childCount == 0)
+        if(!mainPlayer)
         {
             Debug.Log("Game Over");
         }
@@ -57,5 +58,17 @@ public class GameManager : MonoBehaviour
     public Transform GetPlayerParent()
     {
         return playerParent;
+    }
+
+    public bool IsAnyPlayerAlive()
+    {
+        foreach (Transform child in playerParent)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
