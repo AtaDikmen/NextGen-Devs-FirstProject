@@ -10,8 +10,9 @@ public class Primitive : Enemy
         characterName = "Primitive";
         damage = 15;
         attackSpeed = 1.0f;
-        health = 200f;
-        attackRadius = 4.0f;
+        maxHealth = 100.0f;
+        currentHealth = maxHealth;
+        attackRadius = 3.0f;
     }
 
     protected override void Attack()

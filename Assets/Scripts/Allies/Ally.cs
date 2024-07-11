@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ally : Entity
+public class Ally : Entity, IRunnable
 {
+    private bool isRunning = false;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -13,14 +14,30 @@ public class Ally : Entity
         characterName = "Ally";
         damage = 10;
         attackSpeed = 1.0f;
-        health = 100.0f;
+        maxHealth = 100.0f;
+        currentHealth = maxHealth;
         attackRadius = 5.0f;
         nextAttackTime = 0f;
+        speed = 5f;
+        rotationSpeed = 20f;
+        runMultiplier = 2f;
     }
 
-    protected override void SetAttackAnim(bool _isAttacking)
+    public void StartRunning()
     {
-        isAttacking = _isAttacking;
-        animator.SetBool("isAttacking", isAttacking);
+        if (!isRunning)
+        {
+            isRunning = true;
+            speed *= runMultiplier;
+        }
+    }
+
+    public void StopRunning()
+    {
+        if (isRunning)
+        {
+            isRunning = false;
+            speed /= runMultiplier;
+        }
     }
 }

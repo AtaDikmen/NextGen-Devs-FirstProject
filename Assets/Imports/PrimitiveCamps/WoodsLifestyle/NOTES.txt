@@ -1,0 +1,8 @@
+Notes: The new version (v1.1) uses a specially designed texture. You can replace most of the single colour models (LogHeap_01_b.fbx for example) 
+with a standard Unity material. Replace susch models with your own materials or use supplied materials
+located under the main Materials folder.
+
+All vegetation except the trees uses their own materials which can be found under each appropriate vegetation-type folder.
+
+All models are located under the Models folder, some premade 
+buildings can be found under Prefabs.
