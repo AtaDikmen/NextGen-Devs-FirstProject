@@ -4,44 +4,40 @@ using UnityEngine;
 
 public class CampSpawner : MonoBehaviour
 {
-    private GameObject enemyPrefab;
-    private int spawnNumber;
+    [SerializeField] private List<GameObject> enemyPrefabList;
+    private int spawnNumber = 5;
     private bool isUnitsSpawned = false;
-    SphereCollider sphereCollider;
+    BoxCollider boxCollider;
 
     private void Awake() {
-        sphereCollider = GetComponent<SphereCollider>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     private void Update() {
         if (!isUnitsSpawned) 
         {
+            GameObject enemyPrefab = enemyPrefabList[Random.Range(0, enemyPrefabList.Count)];
             for (int i = 0; i < spawnNumber; i++)
             {
-                InstantiateUnits();
+                InstantiateUnits(enemyPrefab);
             }
             isUnitsSpawned = true;
         }
     }
 
-    public void SetEnemyPrefabNumber(GameObject enemyPrefab, int spawnNumber)
-    {
-        this.enemyPrefab = enemyPrefab; 
+    private void SetEnemyPrefabNumber(int spawnNumber)
+    { 
         this.spawnNumber = spawnNumber;
     }
 
-    public GameObject GetEnemyPrefab()
+    private void InstantiateUnits(GameObject enemyPrefab)
     {
-        return enemyPrefab;
-    }
-
-    private void InstantiateUnits()
-    {
-        Vector3 center = sphereCollider.transform.position + sphereCollider.center;
-        float radius = sphereCollider.radius;
+        Debug.Log("enemy prefab name: " + enemyPrefab.name);
+        Vector3 center = boxCollider.transform.position + boxCollider.center;
+        Vector3 size = boxCollider.size;
 
         Vector3 randomDirection = Random.insideUnitSphere.normalized;
-        float randomDistance = Random.Range(0, radius);
+        float randomDistance = Random.Range(0, size.z);
 
         Vector3 position = new Vector3(center.x + randomDirection.x * randomDistance, 0, center.z + randomDirection.z * randomDistance);
 
