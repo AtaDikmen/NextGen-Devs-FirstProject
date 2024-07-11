@@ -101,7 +101,7 @@ public class Entity : MonoBehaviour, IDamagable
 
     protected virtual void SetAttackAnim(bool _isAttacking)
     {
-        
+
     }
 
     private void OnDrawGizmos()
@@ -143,6 +143,10 @@ public class Entity : MonoBehaviour, IDamagable
     public float GetSpeed()
     {
         return speed;
+    }
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
     public float GetRotationSpeed()

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ally : Entity, IRunnable
+public class Ally : Entity
 {
-    private bool isRunning = false;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -20,24 +19,5 @@ public class Ally : Entity, IRunnable
         nextAttackTime = 0f;
         speed = 5f;
         rotationSpeed = 20f;
-        runMultiplier = 2f;
-    }
-
-    public void StartRunning()
-    {
-        if (!isRunning)
-        {
-            isRunning = true;
-            speed *= runMultiplier;
-        }
-    }
-
-    public void StopRunning()
-    {
-        if (isRunning)
-        {
-            isRunning = false;
-            speed /= runMultiplier;
-        }
     }
 }

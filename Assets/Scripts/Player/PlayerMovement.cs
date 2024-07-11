@@ -1,25 +1,23 @@
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+public class PlayerMovement : Movement
 {
     //Adds character movement to the assigned game object
-    private Entity character;
-    private Animator animator;
-
+    private Player player;
     private const int rotationConstant = 100;
     private Rigidbody rb;
-    private Vector3 moveDirection;
     private float cameraDistance;
 
-    private void Awake()
+    void Awake()
     {
-        character = GetComponent<Entity>();
+        character = GetComponent<Player>();
+        player = (Player)character;
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         // Set the initial distance from the camera to the character
         cameraDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
     }
@@ -69,26 +67,38 @@ public class CharacterMovement : MonoBehaviour
     {
         animator.SetBool("isWalking", true);
 
-        Vector3 movement = direction * character.GetSpeed() * Time.deltaTime;
+        Vector3 movement = direction * player.GetSpeed() * Time.deltaTime;
         rb.MovePosition(transform.position + movement);
 
 
-        if (!character.isAttacking)
+        if (!player.isAttacking)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             // Rotate the character to face the movement direction
-            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * character.GetRotationSpeed() * Time.deltaTime));
+            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationConstant * player.GetRotationSpeed() * Time.deltaTime));
         }
     }
 
-
-
-    private void SetAnimatorVariables()
+    public override void StartRunning()
     {
-        float xVelocity = Vector3.Dot(moveDirection.normalized, transform.right);
-        float zVelocity = Vector3.Dot(moveDirection.normalized, transform.forward);
-
-        animator.SetFloat("xVelocity", xVelocity, .1f, Time.deltaTime);
-        animator.SetFloat("zVelocity", zVelocity, .1f, Time.deltaTime);
+        if (!isRunning)
+        {
+            base.StartRunning();
+            foreach (var ally in player.GetAllies())
+            {
+                ally.GetComponent<AllyMovement>().StartRunning();
+            }
+        }
+    }
+    public override void StopRunning()
+    {
+        if (isRunning)
+        {
+            base.StopRunning();
+            foreach (var ally in player.GetAllies())
+            {
+                ally.GetComponent<AllyMovement>().StopRunning();
+            }
+        }
     }
 }

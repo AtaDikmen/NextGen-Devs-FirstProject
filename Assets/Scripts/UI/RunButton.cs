@@ -4,7 +4,7 @@ using System.Collections;
 
 public class RunButton : MonoBehaviour
 {
-    public Player player;
+    public PlayerMovement playerMovement;
     public Button runButton;
 
     void Start()
@@ -14,7 +14,7 @@ public class RunButton : MonoBehaviour
 
     void OnRunButtonClicked()
     {
-        player.StartRunning();
+        playerMovement.StartRunning();
         runButton.interactable = false;
         StartCoroutine(StopRunningAfterDelay(5));
     }
@@ -22,7 +22,7 @@ public class RunButton : MonoBehaviour
     private IEnumerator StopRunningAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        player.StopRunning();
+        playerMovement.StopRunning();
         runButton.interactable = true;
     }
 }

@@ -1117,7 +1117,8 @@ GameObject:
   - component: {fileID: 7801510762588628699}
   - component: {fileID: 229548982217874842}
   - component: {fileID: 1112174643192192634}
-  - component: {fileID: 8671382253968517226}
+  - component: {fileID: 8991925521954411267}
+  - component: {fileID: 2398024617913005271}
   m_Layer: 0
   m_Name: PolyartCharacter
   m_TagString: Player
@@ -1134,7 +1135,7 @@ Transform:
   m_GameObject: {fileID: 3367274313411732341}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.14, y: -1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1240,7 +1241,7 @@ MonoBehaviour:
   healthBar: {fileID: 4077610584959124984}
   isTargetFound: 0
   isAttacking: 0
---- !u!114 &8671382253968517226
+--- !u!114 &8991925521954411267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1249,9 +1250,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 3367274313411732341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7866c4ed8905da4f873df552bbb934c, type: 3}
+  m_Script: {fileID: 11500000, guid: 64c10d444efc25140bdb621851b8aa64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  followRadius: 4
+  circleResetTime: 15
+--- !u!195 &2398024617913005271
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367274313411732341}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3600239763267029964
 GameObject:
   m_ObjectHideFlags: 0
