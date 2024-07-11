@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 323248439922596483}
   - component: {fileID: 988175382482574601}
   - component: {fileID: 91128310120046435}
-  - component: {fileID: 7870026953430193671}
+  - component: {fileID: 4011542830025388016}
   m_Layer: 7
   m_Name: Rocket Projectile
   m_TagString: Untagged
@@ -267,8 +267,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &7870026953430193671
-SphereCollider:
+--- !u!136 &4011542830025388016
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -285,9 +285,11 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.12425953
+  m_Height: 0.822628
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.014591038, z: 0.17152786}
 --- !u!1001 &4483190134865152260
 PrefabInstance:
   m_ObjectHideFlags: 0
