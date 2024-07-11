@@ -1135,7 +1135,7 @@ Transform:
   m_GameObject: {fileID: 3367274313411732341}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.14, y: -1.36, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 11400000, guid: 7008ce408398712489accff38cbe61d1, type: 2}
-  bulletPrefab: {fileID: 5134120758535130613, guid: d1076fa7a7c44a340a06a2e0e59b4952,
+  bulletPrefab: {fileID: 5134120758535130613, guid: ad21b55484b51bc41976db5993a12360,
     type: 3}
   bulletSpawnPoint: {fileID: 6817410478055202646}
   isAlive: 1
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   followRadius: 4
-  circleResetTime: 15
+  circleResetTime: 10
 --- !u!195 &2398024617913005271
 NavMeshAgent:
   m_ObjectHideFlags: 0

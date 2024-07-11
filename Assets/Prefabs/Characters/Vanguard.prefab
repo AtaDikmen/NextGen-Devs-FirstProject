@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   followRadius: 4
-  circleResetTime: 15
+  circleResetTime: 10
 --- !u!195 &1231166433220571606
 NavMeshAgent:
   m_ObjectHideFlags: 0

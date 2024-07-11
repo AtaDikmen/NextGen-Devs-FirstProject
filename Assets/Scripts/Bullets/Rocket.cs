@@ -6,15 +6,12 @@ public class Rocket : MonoBehaviour
 {
     public int damage;
     public float explosionRadius;
-    //public GameObject explosionEffect;
 
     private bool isExplode;
 
-    void OnCollisionEnter(Collision collision)
+    private void Start()
     {
         if (isExplode) return;
-        
-        //Instantiate(explosionEffect, transform.position, transform.rotation);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider nearbyObject in colliders)
@@ -29,5 +26,10 @@ public class Rocket : MonoBehaviour
         isExplode = true;
 
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        
     }
 }
