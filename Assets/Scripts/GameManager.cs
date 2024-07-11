@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform playerParent;
     [SerializeField] private Transform mainPlayer;
     public bool isEnemyWavePhase;
-    private float countdownTime = 30f; // 1.5 minutes in seconds
+    private float countdownTime = 90f; // 1.5 minutes in seconds
     private bool isPlayerInsideBase = true;
 
     // Start is called before the first frame update
