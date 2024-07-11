@@ -19,6 +19,8 @@ public class Bandit : Enemy
     {
         enemyAI.Stop();
         transform.LookAt(target);
-        base.Attack();
+        animator.SetTrigger("Attack");
+        base.Attack();       
     }
+
 }

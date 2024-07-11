@@ -49,10 +49,7 @@ public class EnemyAI : MonoBehaviour
          
         if (closestEnemy != null)
         {
-            if (animator) 
-            {
-                animator.SetTrigger("Run");
-            }
+            animator.SetTrigger("Run");
             agent.SetDestination(closestEnemy.position);
         }
         else
@@ -70,10 +67,9 @@ public class EnemyAI : MonoBehaviour
     public void Patrol()
     {
         if (!agent.isStopped && agent.remainingDistance > agent.stoppingDistance) return;
-        if (animator)
-        {
-            animator.SetTrigger("Walk");
-        }
+
+        animator.SetTrigger("Walk");
+
         //isPatrolling = true;
         agent.isStopped = false;
         agent.speed = initialSpeed;
