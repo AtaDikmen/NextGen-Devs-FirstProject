@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform playerParent;
     [SerializeField] private Transform mainPlayer;
     public bool isEnemyWavePhase;
-    private float countdownTime = 10f; // 1.5 minutes in seconds
+    private float countdownTime = 30f; // 1.5 minutes in seconds
     private bool isPlayerInsideBase = true;
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private IEnumerator StartCountdown(float duration)
