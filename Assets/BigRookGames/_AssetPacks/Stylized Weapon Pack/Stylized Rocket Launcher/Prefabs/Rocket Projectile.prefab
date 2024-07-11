@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2489783810974469297}
   - component: {fileID: 7375337548765109680}
   - component: {fileID: 136168842684345051}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocket_Launcher_Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 988175382482574601}
   - component: {fileID: 91128310120046435}
   - component: {fileID: 7870026953430193671}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocket Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,6 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  explosionGO: {fileID: 945219914928370525, guid: 0efbc2fb92885a4419e4dd071a277889,
+    type: 3}
   speed: 25
   collisionLayerMask:
     serializedVersion: 2
@@ -294,9 +296,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5088939673380300228}
     m_Modifications:
+    - target: {fileID: 1231786695147784, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622348778083768, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1764654978243476, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
       propertyPath: m_Name
       value: RocketFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764654978243476, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4232694689350172, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
       propertyPath: m_LocalPosition.y

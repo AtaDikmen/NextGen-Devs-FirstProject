@@ -11,10 +11,9 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag(targetTag))
         {
-            Debug.Log(targetTag);
-
             other.gameObject.GetComponent<Entity>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
     }
 }

@@ -79,11 +79,14 @@ public class Entity : MonoBehaviour, IDamagable
         SetAttackAnim(true);
 
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        Destroy(bullet, 4);
 
         Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
         Vector3 direction = (targetPosition - transform.position).normalized;
 
         transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+
+        bullet.transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)

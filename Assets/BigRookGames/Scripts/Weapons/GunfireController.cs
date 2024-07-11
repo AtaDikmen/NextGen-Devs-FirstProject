@@ -66,7 +66,7 @@ namespace BigRookGames.Weapons
             // --- Shoot Projectile Object ---
             if (projectilePrefab != null)
             {
-                GameObject newProjectile = Instantiate(projectilePrefab, muzzlePosition.transform.position, muzzlePosition.transform.rotation, transform);
+                GameObject newProjectile = Instantiate(projectilePrefab, muzzlePosition.transform.position, muzzlePosition.transform.rotation);
 
                 newProjectile.GetComponent<ProjectileController>().target = target;
             }

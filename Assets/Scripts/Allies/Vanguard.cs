@@ -28,8 +28,6 @@ public class Vanguard : Ally
         float angleStep = spreadAngle / (bulletCount - 1);
         float angleOffset = -spreadAngle / 2;
 
-        transform.rotation = Quaternion.LookRotation(new Vector3(targetDirection.x, 0, targetDirection.z));
-
 
         for (int i = 0; i < bulletCount; i++)
         {

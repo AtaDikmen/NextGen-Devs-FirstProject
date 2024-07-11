@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.GraphicsBuffer;
 
 namespace BigRookGames.Weapons
@@ -8,6 +9,7 @@ namespace BigRookGames.Weapons
     public class ProjectileController : MonoBehaviour
     {
         public Transform target;
+        public GameObject explosionGO;
 
         // --- Config ---
         public float speed = 100;
@@ -82,7 +84,7 @@ namespace BigRookGames.Weapons
             // --- Instantiate new explosion option. I would recommend using an object pool ---
             GameObject newExplosion = Instantiate(rocketExplosion, transform.position, rocketExplosion.transform.rotation, null);
 
-
+            Instantiate(explosionGO, transform.position, Quaternion.identity);
         }
     }
 }

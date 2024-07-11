@@ -30,25 +30,16 @@ public class Bulldozer : Ally
 
         transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
-        rocketController.FireWeapon();
         rocketController.target = target;
+        rocketController.FireWeapon();
 
 
-        //GameObject rocket = Instantiate(rocketPrefab, bulletSpawnPoint.position, Quaternion.identity);
-        //Vector3 direction = (target.position - transform.position).normalized;
-
-        //Rigidbody rb = rocket.GetComponent<Rigidbody>();
-        //if (rb != null)
-        //{
-        //    rb.AddForce(direction * 20f, ForceMode.Impulse);
-        //}
-
-        //Rocket rocketScript = rocket.GetComponent<Rocket>();
-        //if (rocketScript != null)
-        //{
-        //    rocketScript.damage = damage;
-        //    rocketScript.explosionRadius = 5.0f;
-        //}
+        Rocket rocketScript = rocketPrefab.GetComponent<Rocket>();
+        if (rocketScript != null)
+        {
+            rocketScript.damage = damage;
+            rocketScript.explosionRadius = 5.0f;
+        }
 
         //Debug.Log(characterName + " fired a rocket at " + target.name + " causing an explosion with " + damage + " damage.");
     }
