@@ -18,19 +18,6 @@ public class GridManager : Singleton<GridManager>
     [SerializeField] List<GameObject> instatiatedTiles;
     [SerializeField] private List<Material> edgeMaterialList;
 
-    [SerializeField] private int nullRatio;
-    [SerializeField] private int bushBallRatio;
-    [SerializeField] private int bushNormalRatio;
-    [SerializeField] private int plantNormalRatio;
-
-    [SerializeField] private int plantFlowerRatio;
-
-    [SerializeField] private int rockRatio;
-
-    [SerializeField] private int stumpFirstRatio;
-
-    [SerializeField] private int stumpSecondRatio;
-    [SerializeField] private int treeTallRatio;
 
     public Grid<Tile> _grid;
     private void Awake() {
@@ -81,7 +68,10 @@ public class GridManager : Singleton<GridManager>
                 Quaternion.identity
             );
             edgeTreeTemp.transform.SetParent(tempPrefab.transform, false);
-            edgeTreeTemp.isStatic = true;
+            edgeTreeTemp.gameObject.isStatic = true;
+            edgeTreeTemp.gameObject.transform.GetChild(0).gameObject.isStatic = true;
+            edgeTreeTemp.gameObject.transform.GetChild(1).gameObject.isStatic = true;
+
             edgeTreeTemp.transform.localScale = new Vector3(0.1f, 1f, 0.1f);
             edgeTreeTemp.transform.position = new Vector3(tempPrefab.transform.position.x, 0, tempPrefab.transform.position.z - 1.25f);
         }
