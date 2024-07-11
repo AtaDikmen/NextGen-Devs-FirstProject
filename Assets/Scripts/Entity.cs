@@ -49,7 +49,7 @@ public class Entity : MonoBehaviour, IDamagable
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag(targetTag))
+            if (hitCollider.CompareTag(targetTag) || hitCollider.CompareTag("Tree"))
             {
                 float distanceToEnemy = Vector3.Distance(transform.position, hitCollider.transform.position);
                 if (distanceToEnemy < closestDistance)
@@ -119,7 +119,7 @@ public class Entity : MonoBehaviour, IDamagable
             Debug.Log(characterName + " is Dead");
             OnDead();
             isAlive = false;
-            Destroy(gameObject); // for now
+            Destroy(gameObject); // setActive() for x seconds
         }
     }
 

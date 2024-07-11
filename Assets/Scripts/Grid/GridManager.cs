@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,7 +18,19 @@ public class GridManager : Singleton<GridManager>
     List<GameObject> instatiatedTiles;
     [SerializeField] private List<Material> edgeMaterialList;
 
-    // [SerializeField] private int 
+    [SerializeField] private int nullRatio;
+    [SerializeField] private int bushBallRatio;
+    [SerializeField] private int bushNormalRatio;
+    [SerializeField] private int plantNormalRatio;
+
+    [SerializeField] private int plantFlowerRatio;
+
+    [SerializeField] private int rockRatio;
+
+    [SerializeField] private int stumpFirstRatio;
+
+    [SerializeField] private int stumpSecondRatio;
+    [SerializeField] private int treeTallRatio;
 
     public Grid<Tile> _grid;
     private void Awake() {
@@ -54,20 +67,8 @@ public class GridManager : Singleton<GridManager>
         tempPrefab.isStatic = true;
 
         InstantiateBorderTree(x, z, borderSize, innerBorderSize, tempPrefab);
-
-        InstantiateEnvironmentPrefabs(tempPrefab);
     }
 
-    private void InstantiateEnvironmentPrefabs(GameObject tempPrefab)
-    {
-        int randomNumber = Random.Range(0, 100);
-
-        // switch (randomNumber)
-        // {
-            
-        //     default:
-        // }
-    }
 
     private void InstantiateBorderTree(int x, int z, int borderSize, int innerBorderSize, GameObject tempPrefab)
     {

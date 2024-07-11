@@ -16,5 +16,11 @@ public class Bullet : MonoBehaviour
             other.gameObject.GetComponent<Entity>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (other.gameObject.CompareTag("TreeInner") && targetTag == "Enemy")
+        {
+            other.gameObject.GetComponentInParent<Tree>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

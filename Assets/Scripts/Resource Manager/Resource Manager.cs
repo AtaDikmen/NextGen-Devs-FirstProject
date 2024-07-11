@@ -7,22 +7,21 @@ public class ResourceManager : Singleton<ResourceManager>
 {
     [SerializeField] private int woodStart = 0;
     [SerializeField] private int goldStart = 0;
-    [SerializeField] private int woodRange = 50;
+    [SerializeField] public int woodRange = 50;
 
     [SerializeField] private TextMeshProUGUI woodResource;
     [SerializeField] private TextMeshProUGUI goldResource;
     private int currentWood;
     private int currentGold;
 
-    private void Update()
-    {
+    private void Awake() {
         currentWood = woodStart;
         currentGold = goldStart;
     }
 
-    public void AddWood()
+    public void AddWood(int woodAmount)
     {
-        currentWood += Random.Range(woodRange / 2, woodRange);
+        currentWood += woodAmount;
         woodResource.text = currentWood.ToString();
     }
 
