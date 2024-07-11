@@ -1,0 +1,5 @@
+Woods Lifestyle uses a brand new texture system, specially designed for low poly models. It makes texturing easy and allows you to use a single texture across all
+models. The texture is designed in such a way to cover most of the colours in the spectrum, thus there is no need to struggle on with multiple textures for
+different models or tons of materials to deal with.
+
+The texture works as follow: At the top there is your bright colours; The middel normal colours; At the bottom dull colours.

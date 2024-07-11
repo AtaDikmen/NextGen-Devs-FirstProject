@@ -1,0 +1,14 @@
+v1.0
+Release of package.
+
+v1.1
+Update
+- Added vegetaion, trees & rocks
+- Added bridges
+- Added props: Exterior, Interior, Water, Furniture & Water Tower system
+- New texture: All models (except vegetation) now use a specially designed texture
+*Please see NOTES.txt for more information
+
+
+Future releases:
+More cabins, Interior props & more colour variations.
