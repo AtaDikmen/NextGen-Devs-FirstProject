@@ -30,12 +30,18 @@ public class PlayerManager : MonoBehaviour
        
     }
 
-    public void AllyJoinGroup(AllyType _allyType)
+    public void AllyJoinGroup(AllyType _allyType, Transform _joinPosition)
     {
         foreach (var ally in allies)
         {
             if (ally.GetComponentInChildren<Ally>().allyType == _allyType)
+            {
+                if (ally.activeSelf)
+                    return;
+
                 ally.SetActive(true);
+                ally.gameObject.transform.position = _joinPosition.position;
+            }
         }
     }
 
