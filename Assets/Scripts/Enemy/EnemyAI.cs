@@ -10,19 +10,33 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     private Entity entity;
+    private GameManager gameManager;
+    private Transform playerParent;
     private float initialSpeed;
+    private Transform selectedPlayer;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         entity = GetComponent<Entity>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        playerParent = gameManager.GetPlayerParent();
         initialSpeed = agent.speed;
     }
 
     private void Update()
     {
-        FindPlayerToChase();
+        if (gameManager.isEnemyWavePhase && playerParent.childCount != 0)
+        {
+            Debug.Log("Enemy Wave Phase "+ playerParent.childCount);
+            agent.SetDestination(SetPlayerPosition());
+        }
+        else 
+        {
+            Debug.Log("Patrol Phase");
+            FindPlayerToChase();
+        }
     }
 
     private void FindPlayerToChase()
@@ -87,6 +101,16 @@ public class EnemyAI : MonoBehaviour
         }
 
         return transform.position;
+    }
+
+    private Vector3 SetPlayerPosition() 
+    {
+        if (!selectedPlayer)
+        {
+            selectedPlayer = playerParent.GetChild(Random.Range(0, playerParent.childCount));
+        }   
+
+        return selectedPlayer.position;
     }
 
     private void OnDrawGizmos()

@@ -124,7 +124,7 @@ public class Entity : MonoBehaviour, IDamagable
             Debug.Log(characterName + " is Dead");
             OnDead();
             isAlive = false;
-            Destroy(gameObject); // setActive() for x seconds
+            Destroy(gameObject.transform.parent.gameObject); // setActive() for x seconds
         }
     }
 
