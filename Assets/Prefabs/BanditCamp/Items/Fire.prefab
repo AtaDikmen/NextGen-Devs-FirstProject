@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5895600316230571889}
   - component: {fileID: 2997434961316371601}
   - component: {fileID: 43045755911914398}
+  - component: {fileID: 230145882434074857}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -84,6 +85,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &230145882434074857
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398981309855104296}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.654776, y: 2.4884853, z: 2.654776}
+  m_Center: {x: 0, y: 0.04424256, z: 1.3411852e-15}
 --- !u!1 &4998759844730576614
 GameObject:
   m_ObjectHideFlags: 0
