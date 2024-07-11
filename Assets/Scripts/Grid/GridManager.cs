@@ -15,7 +15,7 @@ public class GridManager : Singleton<GridManager>
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private GameObject edgeTreePrefab;
     [SerializeField] private List<GameObject> environmentPrefabList;
-    List<GameObject> instatiatedTiles;
+    [SerializeField] List<GameObject> instatiatedTiles;
     [SerializeField] private List<Material> edgeMaterialList;
 
     [SerializeField] private int nullRatio;
