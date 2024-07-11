@@ -9,12 +9,12 @@ public class Tree : MonoBehaviour, IDamagable
     [SerializeField] private float inactiveDuration = 5f;
 
     MeshRenderer meshRenderer;
-    SphereCollider sphereCollider;
+    BoxCollider boxCollider;
     private int woodRange;
     private void Awake() {
         woodRange = ResourceManager.Instance.woodRange;
-        meshRenderer = GetComponent<MeshRenderer>();
-        sphereCollider = GetComponent<SphereCollider>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+        boxCollider = GetComponent<BoxCollider>();
         currentHealth = maxHealth;
     }
 
@@ -30,6 +30,7 @@ public class Tree : MonoBehaviour, IDamagable
 
     public virtual void OnDead()
     {
+        currentHealth = 0;
         ResourceManager.Instance.AddWood(Random.Range(woodRange / 2, woodRange));
         StartCoroutine(SetInactiveTemp());
     }
@@ -37,10 +38,10 @@ public class Tree : MonoBehaviour, IDamagable
     private IEnumerator SetInactiveTemp()
     {
         meshRenderer.enabled = false;
-        sphereCollider.enabled = false;
+        boxCollider.enabled = false;
         yield return new WaitForSeconds(inactiveDuration);
         meshRenderer.enabled = true;
-        sphereCollider.enabled = true;
+        boxCollider.enabled = true;
         currentHealth = maxHealth;
     }
 }
