@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Tree
+  - TreeInner
   layers:
   - Default
   - TransparentFX
