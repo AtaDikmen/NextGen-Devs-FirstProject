@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    private PlayerManager playerManager;
+
     private List<Ally> allies = new List<Ally>();
+
+    //Rifle
+    private int bulletsFired = 0;
+    private int maxBullets = 20;
+    private bool isReloading = false;
+
+    [SerializeField] private GameObject[] bulletPrefabs;
+
     private void Awake()
     {
+        playerManager = GetComponentInParent<PlayerManager>();
         animator = GetComponent<Animator>();
 
         targetTag = "Enemy";
@@ -30,6 +41,109 @@ public class Player : Entity
         }
     }
 
+    protected override void Attack()
+    {
+        if (playerManager.currentWeapon == WeaponType.pistol)
+        {
+            bulletPrefab = bulletPrefabs[0];
+
+            attackSpeed = 1f;
+            base.Attack();
+        }
+        else if (playerManager.currentWeapon == WeaponType.rifle)
+        {
+            bulletPrefab = bulletPrefabs[1];
+
+            RifleFire();
+        }
+        else if (playerManager.currentWeapon == WeaponType.shotgun)
+        {
+            bulletPrefab = bulletPrefabs[2];
+
+            OnShotSFX();
+            ShotgunFire();
+        }
+
+        SetAttackAnim(true);
+    }
+
+    private void RifleFire()
+    {
+        attackSpeed = 4f;
+
+        if (!isReloading)
+        {
+            if (bulletsFired < maxBullets)
+            {
+                bulletsFired++;
+                base.Attack();
+            }
+            else
+            {
+                StartCoroutine(Reload());
+                isAttacking = false;
+            }
+        }
+    }
+
+    private void ShotgunFire()
+    {
+        attackSpeed = 0.6f;
+
+        int bulletCount = 5;
+        float spreadAngle = 70f;
+
+        Vector3 targetDirection = (target.position - transform.position).normalized;
+        float angleStep = spreadAngle / (bulletCount - 1);
+        float angleOffset = -spreadAngle / 2;
+
+        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        Vector3 lookDirection = (targetPosition - transform.position).normalized;
+
+        transform.rotation = Quaternion.LookRotation(new Vector3(lookDirection.x, 0, lookDirection.z));
+
+
+        for (int i = 0; i < bulletCount; i++)
+        {
+            float angle = angleOffset + (angleStep * i);
+            Vector3 direction = Quaternion.Euler(0, angle, 0) * targetDirection;
+
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(direction * 10f, ForceMode.Impulse);
+            }
+
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.damage = damage;
+                bulletScript.targetTag = targetTag;
+            }
+        }
+    }
+
+    protected override void OnShotSFX()
+    {
+        if(playerManager.currentWeapon == WeaponType.pistol)
+            audioManager.PlaySFX2D.Invoke("ShotPistol", 0.15f, false);
+        else if(playerManager.currentWeapon == WeaponType.rifle)
+            audioManager.PlaySFX2D.Invoke("ShotRifle", 0.15f, false);
+        else if (playerManager.currentWeapon == WeaponType.shotgun)
+            audioManager.PlaySFX2D.Invoke("ShotShotgun", 0.15f, false);
+    }
+
+    private IEnumerator Reload()
+    {
+        isReloading = true;
+
+        yield return new WaitForSeconds(3f);
+
+        bulletsFired = 0;
+        isReloading = false;
+    }
+
     public void AddAlly(Ally ally)
     {
         allies.Add(ally);
@@ -44,6 +158,8 @@ public class Player : Entity
     {
         if (_isAttacking)
             animator.SetTrigger("Shot");
+
+        isAttacking = _isAttacking;
     }
 
     public List<Ally> GetAllies()

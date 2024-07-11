@@ -10,6 +10,8 @@ public class Bulldozer : Ally
 
     void Start()
     {
+        allyType = AllyType.bulldozer;
+
         characterName = "Bulldozer";
         damage = 100;
         attackSpeed = 0.1f;
@@ -40,7 +42,5 @@ public class Bulldozer : Ally
             rocketScript.damage = damage;
             rocketScript.explosionRadius = 5.0f;
         }
-
-        //Debug.Log(characterName + " fired a rocket at " + target.name + " causing an explosion with " + damage + " damage.");
     }
 }

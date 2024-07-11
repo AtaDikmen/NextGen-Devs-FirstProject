@@ -21,6 +21,12 @@ public class Rocket : MonoBehaviour
                 nearbyObject.gameObject.GetComponent<Entity>().TakeDamage(damage);
                 Destroy(gameObject);
             }
+
+            if (nearbyObject.gameObject.CompareTag("TreeInner"))
+            {
+                nearbyObject.gameObject.GetComponentInParent<Tree>().TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
 
         isExplode = true;
