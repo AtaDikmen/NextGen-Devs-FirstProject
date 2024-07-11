@@ -11,7 +11,7 @@ public class Soldier : Ally
     void Start()
     {
         characterName = "Soldier";
-        damage = 10;
+        damage = 1;
         attackSpeed = 4f;
         health = 100f;
         attackRadius = 7.0f;

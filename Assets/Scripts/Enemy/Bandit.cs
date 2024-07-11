@@ -11,7 +11,7 @@ public class Bandit : Enemy
         damage = 15;
         attackSpeed = 1.0f;
         health = 100f;
-        attackRadius = 4.0f;
+        attackRadius = 5.0f;
     }
 
     protected override void Attack()

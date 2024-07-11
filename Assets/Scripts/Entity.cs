@@ -68,7 +68,7 @@ public class Entity : MonoBehaviour, IDamagable
     {
         SetAttackAnim(true);
 
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletPrefab.transform.rotation);
 
         Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
         Vector3 direction = (targetPosition - transform.position).normalized;
