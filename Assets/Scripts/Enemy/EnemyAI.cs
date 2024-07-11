@@ -22,7 +22,18 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         FindPlayerToChase();
+=======
+        if (gameManager.isEnemyWavePhase && playerParent.childCount != 0)
+        {
+            agent.SetDestination(SetPlayerPosition());
+        }
+        else 
+        {
+            FindPlayerToChase();
+        }
+>>>>>>> Stashed changes
     }
 
     private void FindPlayerToChase()
