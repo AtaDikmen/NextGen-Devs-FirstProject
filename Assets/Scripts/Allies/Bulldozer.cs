@@ -13,11 +13,11 @@ public class Bulldozer : Ally
         allyType = AllyType.bulldozer;
 
         characterName = "Bulldozer";
-        damage = 100;
+        damage = 50;
         attackSpeed = 0.1f;
-        maxHealth = 150.0f;
+        maxHealth = 100f;
         currentHealth = maxHealth;
-        attackRadius = 10.0f;
+        attackRadius = 12f;
     }
 
     protected override void Attack()

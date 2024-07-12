@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TowerUIManager : MonoBehaviour
 {
+    [SerializeField] private Player player;
+
     [SerializeField] private AttackSpeedButton attackSpeedButton;
     [SerializeField] private SpeedButton speedButton;
     [SerializeField] private HealthButton healthButton;
@@ -35,6 +37,8 @@ public class TowerUIManager : MonoBehaviour
             return;
         
         attackSpeedButton.isDone = true;
+
+        player.UpgradeAttackSpeed(3f);
     }
 
     public void BuySpeedButton()
@@ -43,6 +47,8 @@ public class TowerUIManager : MonoBehaviour
             return;
             
         speedButton.isDone = true;
+
+        player.UpgradeSpeed(3f);
     }
 
     public void BuyHealthButton()
@@ -51,5 +57,7 @@ public class TowerUIManager : MonoBehaviour
             return;
 
         healthButton.isDone = true;
+
+        player.UpgradeHealth(50f);
     }
 }

@@ -7,9 +7,9 @@ public class Vanguard : Ally
         allyType = AllyType.vanguard;
 
         characterName = "Vanguard";
-        damage = 20;
+        damage = 10;
         attackSpeed = 0.6f;
-        maxHealth = 80.0f;
+        maxHealth = 100f;
         currentHealth = maxHealth;
         attackRadius = 4f;
     }
@@ -24,7 +24,7 @@ public class Vanguard : Ally
         OnShotSFX();
 
         int bulletCount = 5;
-        float spreadAngle = 70f;
+        float spreadAngle = 60f;
 
         Vector3 targetDirection = (target.position - transform.position).normalized;
         float angleStep = spreadAngle / (bulletCount - 1);

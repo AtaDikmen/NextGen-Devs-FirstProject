@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    //defaultStats
+    private float defaultHealth;
+    private float defaultAttackSpeed;
+    private float defaultSpeed;
+
+
     private PlayerManager playerManager;
 
     private List<Ally> allies = new List<Ally>();
@@ -32,6 +38,10 @@ public class Player : Entity
         nextAttackTime = 0f;
         speed = 5f;
         rotationSpeed = 20f;
+
+        defaultHealth = maxHealth;
+        defaultAttackSpeed = attackSpeed;
+        defaultSpeed = speed;
     }
     void Start()
     {
@@ -40,6 +50,21 @@ public class Player : Entity
         {
             allies.Add(ally);
         }
+    }
+
+    public void UpgradeAttackSpeed(float _attackSpeed)
+    {
+        defaultAttackSpeed += _attackSpeed;
+    }
+    public void UpgradeSpeed(float _speed)
+    {
+        defaultSpeed += _speed;
+    }
+
+    public void UpgradeHealth(float _health)
+    {
+        defaultHealth += _health;
+        currentHealth += _health;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -62,7 +87,7 @@ public class Player : Entity
         {
             bulletPrefab = bulletPrefabs[0];
 
-            attackSpeed = 1f;
+            attackSpeed = defaultAttackSpeed;
             base.Attack();
         }
         else if (playerManager.currentWeapon == WeaponType.rifle)
@@ -84,7 +109,7 @@ public class Player : Entity
 
     private void RifleFire()
     {
-        attackSpeed = 4f;
+        attackSpeed = defaultAttackSpeed * 0.4f;
 
         if (!isReloading)
         {
@@ -103,7 +128,7 @@ public class Player : Entity
 
     private void ShotgunFire()
     {
-        attackSpeed = 0.6f;
+        attackSpeed = defaultAttackSpeed * 0.6f;
 
         int bulletCount = 5;
         float spreadAngle = 70f;

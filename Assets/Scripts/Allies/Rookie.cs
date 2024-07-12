@@ -6,11 +6,11 @@ public class Rookie : Ally
 
 
         characterName = "Rookie";
-        damage = 15;
+        damage = 10;
         attackSpeed = 1.0f;
-        maxHealth = 80.0f;
+        maxHealth = 100f;
         currentHealth = maxHealth;
-        attackRadius = 5.0f;
+        attackRadius = 6f;
     }
 
     protected override void Attack()

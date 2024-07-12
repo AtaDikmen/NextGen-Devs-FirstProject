@@ -15,6 +15,16 @@ public class SpeedButton : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (isDone)
+                return;
+            StopAllCoroutines();
+        }
+    }
+
     private IEnumerator DelayCanvas()
     {
         yield return new WaitForSeconds(2);

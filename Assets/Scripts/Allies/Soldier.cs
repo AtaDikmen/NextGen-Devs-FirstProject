@@ -14,7 +14,7 @@ public class Soldier : Ally
 
 
         characterName = "Soldier";
-        damage = 1;
+        damage = 5;
         attackSpeed = 4f;
         maxHealth = 100.0f;
         currentHealth = maxHealth;

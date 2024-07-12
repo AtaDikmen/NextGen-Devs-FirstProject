@@ -13,7 +13,20 @@ public class HealthButton : MonoBehaviour
                 return;
             StartCoroutine(DelayCanvas());           
         }
+
+
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (isDone)
+                return;
+            StopAllCoroutines();
+        }
+    }
+
 
     private IEnumerator DelayCanvas()
     {

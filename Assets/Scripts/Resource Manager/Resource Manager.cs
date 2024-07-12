@@ -57,12 +57,4 @@ public class ResourceManager : Singleton<ResourceManager>
         currentGold -= goldAmount;
         goldResource.text = currentGold.ToString();
     }
-    public int GetWood()
-    {
-        return currentWood;
-    }
-    public int GetGold()
-    {
-        return currentGold;
-    }
 }
