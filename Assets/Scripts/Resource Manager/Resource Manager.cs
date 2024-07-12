@@ -20,6 +20,17 @@ public class ResourceManager : Singleton<ResourceManager>
         currentGold = goldStart;
     }
 
+    private void Start()
+    {
+        UpdateResourceTexts();
+    }
+
+    public void UpdateResourceTexts()
+    {
+        woodResource.text = currentWood.ToString();
+        goldResource.text = currentGold.ToString();
+    }
+
     public int GetWood()
     {
         return currentWood;

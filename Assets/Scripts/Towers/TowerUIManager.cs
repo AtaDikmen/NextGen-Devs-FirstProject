@@ -39,6 +39,9 @@ public class TowerUIManager : MonoBehaviour
         attackSpeedButton.isDone = true;
 
         player.UpgradeAttackSpeed(3f);
+        CloseAttackSpeedCanvas();
+
+        ResourceManager.Instance.UpdateResourceTexts();
     }
 
     public void BuySpeedButton()
@@ -49,6 +52,8 @@ public class TowerUIManager : MonoBehaviour
         speedButton.isDone = true;
 
         player.UpgradeSpeed(3f);
+        CloseSpeedCanvas();
+        ResourceManager.Instance.UpdateResourceTexts();
     }
 
     public void BuyHealthButton()
@@ -59,5 +64,7 @@ public class TowerUIManager : MonoBehaviour
         healthButton.isDone = true;
 
         player.UpgradeHealth(50f);
+        CloseHealthCanvas();
+        ResourceManager.Instance.UpdateResourceTexts();
     }
 }

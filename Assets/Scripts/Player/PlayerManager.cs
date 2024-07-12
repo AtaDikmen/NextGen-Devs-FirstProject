@@ -41,6 +41,7 @@ public class PlayerManager : MonoBehaviour
 
                 ally.SetActive(true);
                 ally.gameObject.transform.position = _joinPosition.position;
+                ally.gameObject.transform.GetChild(0).position = _joinPosition.position;
             }
         }
     }

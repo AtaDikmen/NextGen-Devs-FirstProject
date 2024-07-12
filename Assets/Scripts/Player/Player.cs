@@ -55,10 +55,12 @@ public class Player : Entity
     public void UpgradeAttackSpeed(float _attackSpeed)
     {
         defaultAttackSpeed += _attackSpeed;
+        attackSpeed = defaultAttackSpeed;
     }
     public void UpgradeSpeed(float _speed)
     {
         defaultSpeed += _speed;
+        speed = defaultSpeed;
     }
 
     public void UpgradeHealth(float _health)
@@ -109,7 +111,7 @@ public class Player : Entity
 
     private void RifleFire()
     {
-        attackSpeed = defaultAttackSpeed * 0.4f;
+        attackSpeed = defaultAttackSpeed * 0.6f;
 
         if (!isReloading)
         {
