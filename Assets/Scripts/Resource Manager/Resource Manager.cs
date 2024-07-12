@@ -20,6 +20,16 @@ public class ResourceManager : Singleton<ResourceManager>
         currentGold = goldStart;
     }
 
+    public int GetWood()
+    {
+        return currentWood;
+    }
+
+    public int GetGold()
+    {
+        return currentGold;
+    }
+
     public void AddWood(int woodAmount)
     {
         currentWood += woodAmount;
