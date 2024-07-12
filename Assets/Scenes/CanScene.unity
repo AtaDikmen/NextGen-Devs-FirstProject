@@ -2882,80 +2882,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222823059}
   m_CullTransparentMesh: 1
---- !u!1 &1364423759
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1364423762}
-  - component: {fileID: 1364423761}
-  - component: {fileID: 1364423760}
-  m_Layer: 0
-  m_Name: MarketManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1364423760
+--- !u!114 &1364423760 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+    type: 3}
+  m_PrefabInstance: {fileID: 4545474624877368098}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364423759}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91223bddfae71364cbeded411755ab0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marketPanel: {fileID: 1762819159}
-  playerManager: {fileID: 1762964130}
-  resourceManager: {fileID: 1075159008}
-  closeButton: {fileID: 1132693671}
-  RiflePriceText: {fileID: 234762512}
-  ShotgunPriceText: {fileID: 430825634}
-  RocketLauncherPriceText: {fileID: 1222823059}
-  EquippedIcon: {fileID: 2004953283}
---- !u!65 &1364423761
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364423759}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 1, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1364423762
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364423759}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.87, y: 2, z: -3.32}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1387534061
 GameObject:
   m_ObjectHideFlags: 0
@@ -4553,6 +4491,114 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117317931}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &4545474624877368098
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 1132693671}
+    - target: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: marketPanel
+      value: 
+      objectReference: {fileID: 1762819159}
+    - target: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: EquippedIcon
+      value: 
+      objectReference: {fileID: 2004953283}
+    - target: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 1762964130}
+    - target: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: RiflePriceText
+      value: 
+      objectReference: {fileID: 234762512}
+    - target: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: resourceManager
+      value: 
+      objectReference: {fileID: 1075159008}
+    - target: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: ShotgunPriceText
+      value: 
+      objectReference: {fileID: 430825634}
+    - target: {fileID: 3933952712675450000, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: RocketLauncherPriceText
+      value: 
+      objectReference: {fileID: 1222823059}
+    - target: {fileID: 6429666557166377284, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_Name
+      value: MarketManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329907065740183346, guid: a142797ae4014f64b92b3211c489ca00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a142797ae4014f64b92b3211c489ca00, type: 3}
 --- !u!1001 &7771121372579966184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4719,5 +4765,5 @@ SceneRoots:
   - {fileID: 1853139740}
   - {fileID: 1999613393}
   - {fileID: 1526339482}
-  - {fileID: 1364423762}
+  - {fileID: 4545474624877368098}
   - {fileID: 1983237512}
