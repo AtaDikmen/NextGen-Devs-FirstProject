@@ -8,7 +8,7 @@ public class Bulldozer : Ally
     [SerializeField] private GunfireController rocketController;
 
 
-    void Start()
+    protected override void Start()
     {
         allyType = AllyType.bulldozer;
 

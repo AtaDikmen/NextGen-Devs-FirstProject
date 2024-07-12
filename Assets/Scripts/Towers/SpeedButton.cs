@@ -6,8 +6,23 @@ public class SpeedButton : MonoBehaviour
 {
     [SerializeField] private GameObject canvas;
     public bool isDone = false;
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Player")) 
+
+
+    [SerializeField] private GameObject brokenTower;
+    [SerializeField] private GameObject fixedTower;
+
+    public void CheckIsDone()
+    {
+        if (isDone)
+        {
+            brokenTower.SetActive(false);
+            fixedTower.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "General") 
         {
             if (isDone)
                 return;
@@ -17,17 +32,18 @@ public class SpeedButton : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.name == "General")
         {
             if (isDone)
                 return;
             StopAllCoroutines();
+            canvas.SetActive(false);
         }
     }
 
     private IEnumerator DelayCanvas()
     {
         yield return new WaitForSeconds(2);
-        canvas.gameObject.SetActive(true);
+        canvas.SetActive(true);
     }
 }

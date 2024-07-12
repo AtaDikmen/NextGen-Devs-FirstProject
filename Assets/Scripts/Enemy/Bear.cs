@@ -7,7 +7,7 @@ public class Bear : Enemy
     public float dashSpeed = 15f;
     public float dashCooldown = 2f;
 
-    void Start()
+    protected override void Start()
     {
         enemyType = EnemyTypes.Bear;
         characterName = "Bear";

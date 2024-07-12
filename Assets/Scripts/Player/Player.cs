@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    //Audio Clips
+    private AudioClip pistolSFX;
+    private AudioClip rifleSFX;
+    private AudioClip shotGunSFX;
+
     //defaultStats
     private float defaultHealth;
     private float defaultAttackSpeed;
@@ -43,8 +48,14 @@ public class Player : Entity
         defaultAttackSpeed = attackSpeed;
         defaultSpeed = speed;
     }
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
+        pistolSFX = Resources.Load<AudioClip>("ShotPistolV1");
+        rifleSFX = Resources.Load<AudioClip>("ShotRifle");
+        shotGunSFX = Resources.Load<AudioClip>("ShotShotgun");
+
         // Register allies as observers
         foreach (var ally in FindObjectsOfType<Ally>())
         {
@@ -168,12 +179,12 @@ public class Player : Entity
 
     protected override void OnShotSFX()
     {
-        if(playerManager.currentWeapon == WeaponType.pistol)
-            audioManager.PlaySFX2D.Invoke("ShotPistol", 0.15f, false);
-        else if(playerManager.currentWeapon == WeaponType.rifle)
-            audioManager.PlaySFX2D.Invoke("ShotRifle", 0.15f, false);
+        if (playerManager.currentWeapon == WeaponType.pistol)
+            audioManager.PlaySFX(pistolSFX);
+        else if (playerManager.currentWeapon == WeaponType.rifle)
+            audioManager.PlaySFX(rifleSFX);
         else if (playerManager.currentWeapon == WeaponType.shotgun)
-            audioManager.PlaySFX2D.Invoke("ShotShotgun", 0.15f, false);
+            audioManager.PlaySFX(shotGunSFX);
     }
 
     private IEnumerator Reload()

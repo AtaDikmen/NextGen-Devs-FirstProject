@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Entity : MonoBehaviour, IDamagable
 {
     protected Animator animator;
-    [SerializeField] protected MyAudioManagerSO audioManager;
+    protected AudioManager audioManager;
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
@@ -27,6 +28,11 @@ public class Entity : MonoBehaviour, IDamagable
     public HealthBar healthBar;
     public bool isTargetFound;
     public bool isAttacking;
+
+    protected virtual void Start()
+    {
+        audioManager = AudioManager.Instance;
+    }
 
 
     void Update()
@@ -110,7 +116,7 @@ public class Entity : MonoBehaviour, IDamagable
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddForce(direction * 10f, ForceMode.Impulse);
+            rb.AddForce(direction * 20f, ForceMode.Impulse);
         }
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
@@ -141,13 +147,13 @@ public class Entity : MonoBehaviour, IDamagable
             Debug.Log(characterName + " is Dead");
             OnDead();
             isAlive = false;
-            if(gameObject.name == "General")
+            if(gameObject.tag == "Enemy")
             {
                 Destroy(gameObject);
             }
             else
             {
-                Destroy(gameObject.transform.parent.gameObject); // setActive() for x seconds
+                gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
     }
@@ -173,9 +179,9 @@ public class Entity : MonoBehaviour, IDamagable
     {
         return speed;
     }
-    public void SetSpeed(float speed)
+    public void SetSpeed(float _speed)
     {
-        this.speed = speed;
+        speed = _speed;
     }
 
     public float GetRotationSpeed()

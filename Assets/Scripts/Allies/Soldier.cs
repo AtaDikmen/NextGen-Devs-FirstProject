@@ -8,8 +8,10 @@ public class Soldier : Ally
     private int maxBullets = 20;
     private bool isReloading = false;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         allyType = AllyType.soldier;
 
 
@@ -59,6 +61,8 @@ public class Soldier : Ally
 
     protected override void OnShotSFX()
     {
-        audioManager.PlaySFX2D.Invoke("ShotRifle", 0.15f, false);
+        AudioClip shotSFX = Resources.Load<AudioClip>("ShotRifle");
+
+        AudioManager.Instance.PlaySFX(shotSFX);
     }
 }

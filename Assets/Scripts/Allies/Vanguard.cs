@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Vanguard : Ally
 {
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         allyType = AllyType.vanguard;
 
         characterName = "Vanguard";
@@ -22,6 +24,7 @@ public class Vanguard : Ally
     private void FireShotgun()
     {
         OnShotSFX();
+        SetAttackAnim(true);
 
         int bulletCount = 5;
         float spreadAngle = 60f;
@@ -52,8 +55,16 @@ public class Vanguard : Ally
         }
     }
 
+    protected override void SetAttackAnim(bool _isAttacking)
+    {
+        if (_isAttacking)
+            animator.SetTrigger("Shot");
+    }
+
     protected override void OnShotSFX()
     {
-        audioManager.PlaySFX2D.Invoke("ShotShotgun", 0.15f, false);
+        AudioClip shotSFX = Resources.Load<AudioClip>("ShotShotgun");
+
+        AudioManager.Instance.PlaySFX(shotSFX);
     }
 }

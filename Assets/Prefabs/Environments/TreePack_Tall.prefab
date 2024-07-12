@@ -73,6 +73,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   inactiveDuration: 5
+  boxColliderInChildren: {fileID: 8680278437024040413}
 --- !u!65 &5341448985826786790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -411,6 +412,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   inactiveDuration: 5
+  boxColliderInChildren: {fileID: 1292609710119191325}
 --- !u!65 &4809861264366271320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -505,6 +507,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   inactiveDuration: 5
+  boxColliderInChildren: {fileID: 9011832910125203038}
 --- !u!65 &9072026288732758479
 BoxCollider:
   m_ObjectHideFlags: 0

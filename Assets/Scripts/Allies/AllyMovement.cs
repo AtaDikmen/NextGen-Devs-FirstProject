@@ -24,7 +24,6 @@ public class AllyMovement : Movement
     {
         CheckRandomCircle();
         currentCircle = randomCircle;
-        agent.speed = character.GetSpeed();
     }
 
     // Update is called once per frame
@@ -64,7 +63,7 @@ public class AllyMovement : Movement
         }
         else
         {
-            agent.angularSpeed = 360;
+            agent.angularSpeed = 2000;
         }
     }
 
@@ -96,22 +95,6 @@ public class AllyMovement : Movement
         {
             // Agent has stopped moving
             animator.SetBool("isWalking", false);
-        }
-    }
-    public override void StartRunning()
-    {
-        if (!isRunning)
-        {
-            base.StartRunning();
-            agent.speed *= runMultiplier;
-        }
-    }
-    public override void StopRunning()
-    {
-        if (isRunning)
-        {
-            base.StopRunning();
-            agent.speed /= runMultiplier;
         }
     }
 }

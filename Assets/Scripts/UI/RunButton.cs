@@ -5,10 +5,12 @@ using System.Collections;
 public class RunButton : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public Button runButton;
+    private Button runButton;
 
     void Start()
     {
+        runButton = GetComponent<Button>();
+
         runButton.onClick.AddListener(OnRunButtonClicked);
     }
 

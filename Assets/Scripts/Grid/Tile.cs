@@ -12,7 +12,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private ObjectType objectType;
     [SerializeField] private List<GameObject> prefabList;
     private int objectNumber;
-    [SerializeField] private bool isBanditCamp = false;
+    //[SerializeField] private bool isBanditCamp = false;
 
     private void Awake() {
         objectType = ObjectType.Empty;

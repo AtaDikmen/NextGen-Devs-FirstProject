@@ -747,7 +747,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8172774625575144329}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2166637939758521676}
+        m_TargetAssemblyTypeName: TowerUIManager, Assembly-CSharp
+        m_MethodName: BuyAttackSpeedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2207739573385008614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,7 +2597,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6979925512064426367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2166637939758521676}
+        m_TargetAssemblyTypeName: TowerUIManager, Assembly-CSharp
+        m_MethodName: BuySpeedButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6495757491499945653
 GameObject:
   m_ObjectHideFlags: 0
@@ -2993,7 +3017,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4772882534779155473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2166637939758521676}
+        m_TargetAssemblyTypeName: TowerUIManager, Assembly-CSharp
+        m_MethodName: BuyHealthButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7832368506363039656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,6 +3684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1acd8d03fa19844aaf0fbc2606e779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   attackSpeedButton: {fileID: 0}
   speedButton: {fileID: 0}
   healthButton: {fileID: 0}

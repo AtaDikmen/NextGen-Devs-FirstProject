@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class ResourceManager : Singleton<ResourceManager>
 {
+    private AudioManager audioManager;
+
+    //Audio Clips
+    private List<AudioClip> collectCoin = new List<AudioClip>();
+    private List<AudioClip> collectWood = new List<AudioClip>();
+
     [SerializeField] private int woodStart = 0;
     [SerializeField] private int goldStart = 0;
     [SerializeField] public int woodRange = 50;
@@ -14,8 +20,12 @@ public class ResourceManager : Singleton<ResourceManager>
     private int currentWood;
     private int currentGold;
 
-    private void Awake()
+    protected override void Awake()
     {
+        audioManager = AudioManager.Instance;
+
+        SetAudioClips();
+
         currentWood = woodStart;
         currentGold = goldStart;
     }
@@ -43,6 +53,8 @@ public class ResourceManager : Singleton<ResourceManager>
 
     public void AddWood(int woodAmount)
     {
+        audioManager.PlaySFX(collectWood[Random.Range(0, collectWood.Count)], 1f);
+
         currentWood += woodAmount;
         woodResource.text = currentWood.ToString();
     }
@@ -57,6 +69,8 @@ public class ResourceManager : Singleton<ResourceManager>
 
     public void AddGold(int goldAmount)
     {
+        audioManager.PlaySFX(collectCoin[Random.Range(0, collectCoin.Count)], 1f);
+
         currentGold += goldAmount;
         goldResource.text = currentGold.ToString();
     }
@@ -67,5 +81,16 @@ public class ResourceManager : Singleton<ResourceManager>
             return;
         currentGold -= goldAmount;
         goldResource.text = currentGold.ToString();
+    }
+
+    private void SetAudioClips()
+    {
+        collectCoin.Add(Resources.Load<AudioClip>("CollectCoin (1)"));
+        collectCoin.Add(Resources.Load<AudioClip>("CollectCoin (2)"));
+
+        collectWood.Add(Resources.Load<AudioClip>("CollectWood (1)"));
+        collectWood.Add(Resources.Load<AudioClip>("CollectWood (2)"));
+        collectWood.Add(Resources.Load<AudioClip>("CollectWood (3)"));
+        collectWood.Add(Resources.Load<AudioClip>("CollectWood (4)"));
     }
 }

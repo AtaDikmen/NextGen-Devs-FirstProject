@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Primitive : Enemy
 {
-    void Start()
+    protected override void Start()
     {
         enemyType = EnemyTypes.Primitive;
         characterName = "Primitive";

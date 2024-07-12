@@ -20,7 +20,7 @@ public class GridManager : Singleton<GridManager>
 
 
     public Grid<Tile> _grid;
-    private void Awake() {
+    protected override void Awake() {
         innerBorderSize = borderSize / 2;
         _grid = new Grid<Tile>(width, height, cellSize);
     }

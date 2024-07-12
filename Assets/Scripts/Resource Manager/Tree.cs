@@ -9,15 +9,15 @@ public class Tree : MonoBehaviour, IDamagable
     [SerializeField] private float inactiveDuration = 5f;
 
     MeshRenderer meshRenderer;
-    BoxCollider boxCollider;
-    BoxCollider boxColliderInChildren;
+    private BoxCollider boxCollider;
+    [SerializeField] private BoxCollider boxColliderInChildren;
     private int woodRange;
     private void Awake() {
         woodRange = ResourceManager.Instance.woodRange;
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
-        boxColliderInChildren = GetComponentInChildren<BoxCollider>();
         currentHealth = maxHealth;
+
     }
 
     public void TakeDamage(float damage)

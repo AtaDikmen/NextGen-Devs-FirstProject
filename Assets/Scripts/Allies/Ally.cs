@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum AllyType
 {
@@ -12,6 +13,8 @@ public enum AllyType
 
 public class Ally : Entity
 {
+    public NavMeshAgent agent;
+
     public AllyType allyType;
 
     protected int allyCount;
@@ -19,6 +22,7 @@ public class Ally : Entity
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
 
         targetTag = "Enemy";
 
@@ -29,7 +33,7 @@ public class Ally : Entity
         currentHealth = maxHealth;
         attackRadius = 5.0f;
         nextAttackTime = 0f;
-        speed = 5f;
+        agent.speed = 5f;
         rotationSpeed = 20f;
     }
 }

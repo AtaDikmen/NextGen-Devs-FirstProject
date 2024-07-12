@@ -73,6 +73,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   inactiveDuration: 5
+  boxColliderInChildren: {fileID: 716558431071678117}
 --- !u!65 &6826769274651392464
 BoxCollider:
   m_ObjectHideFlags: 0

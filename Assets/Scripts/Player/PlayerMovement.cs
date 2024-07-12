@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : Movement
 {
+    private PlayerManager playerManager;
+
     //Adds character movement to the assigned game object
     private Player player;
     private const int rotationConstant = 100;
@@ -10,6 +12,7 @@ public class PlayerMovement : Movement
 
     void Awake()
     {
+        playerManager = GetComponentInParent<PlayerManager>();
         character = GetComponent<Player>();
         player = (Player)character;
         animator = GetComponent<Animator>();
@@ -83,10 +86,7 @@ public class PlayerMovement : Movement
         if (!isRunning)
         {
             base.StartRunning();
-            foreach (var ally in player.GetAllies())
-            {
-                ally.GetComponent<AllyMovement>().StartRunning();
-            }
+            playerManager.OnSpeedBoost(player.GetSpeed());
         }
     }
     public override void StopRunning()
@@ -94,10 +94,7 @@ public class PlayerMovement : Movement
         if (isRunning)
         {
             base.StopRunning();
-            foreach (var ally in player.GetAllies())
-            {
-                ally.GetComponent<AllyMovement>().StopRunning();
-            }
+            playerManager.OnSpeedBoost(player.GetSpeed());
         }
     }
 }

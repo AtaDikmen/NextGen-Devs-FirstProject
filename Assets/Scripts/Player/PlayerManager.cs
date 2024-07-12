@@ -30,18 +30,27 @@ public class PlayerManager : MonoBehaviour
        
     }
 
-    public void AllyJoinGroup(AllyType _allyType, Transform _joinPosition)
+    public void OnSpeedBoost(float _speed)
     {
         foreach (var ally in allies)
+        {
+            if(ally.activeSelf)
+                ally.GetComponentInChildren<Ally>().agent.speed = _speed;
+        }
+    }
+
+
+    public void AllyJoinGroup(AllyType _allyType, Transform _joinPosition)
+    {
+        foreach (GameObject ally in allies)
         {
             if (ally.GetComponentInChildren<Ally>().allyType == _allyType)
             {
                 if (ally.activeSelf)
                     return;
 
+                ally.transform.GetChild(0).position = _joinPosition.position;
                 ally.SetActive(true);
-                ally.gameObject.transform.position = _joinPosition.position;
-                ally.gameObject.transform.GetChild(0).position = _joinPosition.position;
             }
         }
     }

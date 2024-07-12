@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerUIManager : MonoBehaviour
 {
     [SerializeField] private Player player;
+    private ResourceManager resourceManager;
 
     [SerializeField] private AttackSpeedButton attackSpeedButton;
     [SerializeField] private SpeedButton speedButton;
@@ -13,7 +14,7 @@ public class TowerUIManager : MonoBehaviour
     private int goldCost = 5;
     private int woodCost = 50;
     private void Awake() {
-        
+        resourceManager = ResourceManager.Instance;
     }
 
     public void CloseAttackSpeedCanvas()
@@ -33,38 +34,67 @@ public class TowerUIManager : MonoBehaviour
 
     public void BuyAttackSpeedButton()
     {
-        if(ResourceManager.Instance.GetGold() != goldCost && ResourceManager.Instance.GetWood() != woodCost)
-            return;
-        
-        attackSpeedButton.isDone = true;
+        if (resourceManager.GetGold() >= goldCost && resourceManager.GetWood() >= woodCost)
+        {
+            resourceManager.SubGold(goldCost);
+            resourceManager.SubWood(woodCost);
 
-        player.UpgradeAttackSpeed(3f);
-        CloseAttackSpeedCanvas();
+            attackSpeedButton.isDone = true;
 
-        ResourceManager.Instance.UpdateResourceTexts();
+            player.UpgradeAttackSpeed(3f);
+            CloseAttackSpeedCanvas();
+
+            resourceManager.UpdateResourceTexts();
+
+            attackSpeedButton.CheckIsDone();
+        }
+        else
+        {
+            Debug.LogWarning("Not enough gold or wood");
+        }
     }
 
     public void BuySpeedButton()
     {
-        if(ResourceManager.Instance.GetGold() != goldCost && ResourceManager.Instance.GetWood() != woodCost)
-            return;
-            
-        speedButton.isDone = true;
+        if (resourceManager.GetGold() >= goldCost && resourceManager.GetWood() >= woodCost)
+        {
+            resourceManager.SubGold(goldCost);
+            resourceManager.SubWood(woodCost);
 
-        player.UpgradeSpeed(3f);
-        CloseSpeedCanvas();
-        ResourceManager.Instance.UpdateResourceTexts();
+            speedButton.isDone = true;
+
+            player.UpgradeSpeed(3f);
+            CloseSpeedCanvas();
+            resourceManager.UpdateResourceTexts();
+
+            speedButton.CheckIsDone();
+
+        }
+        else
+        {
+            Debug.LogWarning("Not enough gold or wood");
+        }
+        
     }
 
     public void BuyHealthButton()
     {
-        if(ResourceManager.Instance.GetGold() != goldCost && ResourceManager.Instance.GetWood() != woodCost)
-            return;
+        if (resourceManager.GetGold() >= goldCost && resourceManager.GetWood() >= woodCost)
+        {
+            resourceManager.SubGold(goldCost);
+            resourceManager.SubWood(woodCost);
 
-        healthButton.isDone = true;
+            healthButton.isDone = true;
 
-        player.UpgradeHealth(50f);
-        CloseHealthCanvas();
-        ResourceManager.Instance.UpdateResourceTexts();
+            player.UpgradeHealth(50f);
+            CloseHealthCanvas();
+            resourceManager.UpdateResourceTexts();
+
+            healthButton.CheckIsDone();
+        }
+        else
+        {
+            Debug.LogWarning("Not enough gold or wood");
+        }
     }
 }

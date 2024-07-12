@@ -1,7 +1,11 @@
+using UnityEngine;
+
 public class Rookie : Ally
 {
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         allyType = AllyType.rookie;
 
 
@@ -21,6 +25,8 @@ public class Rookie : Ally
 
     protected override void OnShotSFX()
     {
-        audioManager.PlaySFX2D.Invoke("ShotPistol", 0.15f, false);
+        AudioClip shotSFX = Resources.Load<AudioClip>("ShotPistolV1");
+
+        audioManager.PlaySFX(shotSFX);
     }
 }
