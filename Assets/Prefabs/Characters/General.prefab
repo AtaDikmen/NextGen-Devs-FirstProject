@@ -2314,6 +2314,7 @@ MonoBehaviour:
   healthBar: {fileID: 8504349163645393914}
   isTargetFound: 0
   isAttacking: 0
+  bulletPrefabs: []
 --- !u!114 &2916374052542193117
 MonoBehaviour:
   m_ObjectHideFlags: 0
