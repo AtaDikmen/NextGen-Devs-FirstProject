@@ -26,7 +26,7 @@ public class Player : Entity
         characterName = "Player";
         damage = 10;
         attackSpeed = 1.0f;
-        maxHealth = 100.0f;
+        maxHealth = 300f;
         currentHealth = maxHealth;
         attackRadius = 5.0f;
         nextAttackTime = 0f;
