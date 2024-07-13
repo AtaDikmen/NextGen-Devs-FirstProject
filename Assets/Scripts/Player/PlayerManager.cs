@@ -8,11 +8,14 @@ public enum WeaponType
 {
     pistol,
     rifle,
-    shotgun
+    shotgun,
+    rocket
 }
 
 public class PlayerManager : MonoBehaviour
 {
+    private Player player;
+
     public WeaponType currentWeapon;
 
     [SerializeField] private GameObject[] weapons;
@@ -23,6 +26,8 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         currentWeapon = WeaponType.pistol;
+
+        player = GetComponentInChildren<Player>();
     }
 
     void Update()
@@ -65,6 +70,8 @@ public class PlayerManager : MonoBehaviour
             return;
         }
 
+        player.SetWeaponStat(type);
+
 
         foreach (var weapon in weapons)
         {
@@ -84,6 +91,10 @@ public class PlayerManager : MonoBehaviour
             case WeaponType.shotgun:
                 currentWeapon = WeaponType.shotgun;
                 weapons[2].SetActive(true);
+                break;
+            case WeaponType.rocket:
+                currentWeapon = WeaponType.rocket;
+                weapons[3].SetActive(true);
                 break;
             default:
                 break;

@@ -8,11 +8,11 @@ public class Primitive : Enemy
     {
         enemyType = EnemyTypes.Primitive;
         characterName = "Primitive";
-        damage = 15;
+        damage = 10;
         attackSpeed = 1.0f;
         maxHealth = 100.0f;
         currentHealth = maxHealth;
-        attackRadius = 3.0f;
+        attackRadius = 5f;
     }
 
     protected override void Attack()

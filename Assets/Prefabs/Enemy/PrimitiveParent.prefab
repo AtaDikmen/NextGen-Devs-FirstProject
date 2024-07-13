@@ -992,7 +992,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -1030,11 +1030,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14aa7835a44a08548a633e8217c42421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 11400000, guid: 7008ce408398712489accff38cbe61d1, type: 2}
   bulletPrefab: {fileID: 1337024436769953104, guid: 01372e2815129ca4a9eb1bbb79cb15ca,
     type: 3}
   bulletSpawnPoint: {fileID: 421355840687893244}
-  isAlive: 0
+  isAlive: 1
   healthBar: {fileID: 1598628954073016}
   isTargetFound: 0
   isAttacking: 0

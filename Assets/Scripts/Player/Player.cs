@@ -1,3 +1,4 @@
+using BigRookGames.Weapons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,10 +15,14 @@ public class Player : Entity
     private float defaultAttackSpeed;
     private float defaultSpeed;
 
-
     private PlayerManager playerManager;
 
     private List<Ally> allies = new List<Ally>();
+
+    //Rocket
+    public GameObject rocketPrefab;
+    [SerializeField] private GunfireController rocketController;
+
 
     //Rifle
     private int bulletsFired = 0;
@@ -35,11 +40,11 @@ public class Player : Entity
         targetTag = "Enemy";
 
         characterName = "Player";
-        damage = 10;
+        damage = 15;
         attackSpeed = 1.0f;
         maxHealth = 300f;
         currentHealth = maxHealth;
-        attackRadius = 5.0f;
+        attackRadius = 6f;
         nextAttackTime = 0f;
         speed = 5f;
         rotationSpeed = 20f;
@@ -98,26 +103,40 @@ public class Player : Entity
     {
         if (playerManager.currentWeapon == WeaponType.pistol)
         {
-            bulletPrefab = bulletPrefabs[0];
-
-            attackSpeed = defaultAttackSpeed;
             base.Attack();
         }
         else if (playerManager.currentWeapon == WeaponType.rifle)
         {
-            bulletPrefab = bulletPrefabs[1];
-
             RifleFire();
         }
         else if (playerManager.currentWeapon == WeaponType.shotgun)
         {
-            bulletPrefab = bulletPrefabs[2];
-
             OnShotSFX();
             ShotgunFire();
         }
+        else if (playerManager.currentWeapon == WeaponType.rocket)
+        {
+            FireRocket();
+        }
 
         SetAttackAnim(true);
+    }
+    private void FireRocket()
+    {
+        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+
+        rocketController.target = target;
+        rocketController.FireWeapon();
+
+        Rocket rocketScript = rocketPrefab.GetComponent<Rocket>();
+        if (rocketScript != null)
+        {
+            rocketScript.damage = damage;
+            rocketScript.explosionRadius = 5.0f;
+        }
     }
 
     private void RifleFire()
@@ -197,16 +216,6 @@ public class Player : Entity
         isReloading = false;
     }
 
-    public void AddAlly(Ally ally)
-    {
-        allies.Add(ally);
-    }
-
-    public void RemoveAlly(Ally ally)
-    {
-        allies.Remove(ally);
-    }
-
     protected override void SetAttackAnim(bool _isAttacking)
     {
         if (_isAttacking)
@@ -215,8 +224,35 @@ public class Player : Entity
         isAttacking = _isAttacking;
     }
 
-    public List<Ally> GetAllies()
+    public void SetWeaponStat(WeaponType type)
     {
-        return allies;
+        switch (type)
+        {
+            case WeaponType.pistol:
+                bulletPrefab = bulletPrefabs[0];
+                damage = 15;
+                attackSpeed = defaultAttackSpeed;
+                attackRadius = 6f;
+                break;
+            case WeaponType.rifle:
+                bulletPrefab = bulletPrefabs[1];
+                damage = 10;
+                attackSpeed = defaultAttackSpeed * 1.3f;
+                attackRadius = 7f;
+                break;
+            case WeaponType.shotgun:
+                bulletPrefab = bulletPrefabs[2];
+                damage = 10;
+                attackSpeed = defaultAttackSpeed * 0.7f;
+                attackRadius = 4f;
+                break;
+            case WeaponType.rocket:
+                damage = 65;
+                attackSpeed = 0.3f;
+                attackRadius = 10f;
+                break;
+            default:
+                break;
+        }
     }
 }
