@@ -43,4 +43,14 @@ public class Bulldozer : Ally
             rocketScript.explosionRadius = 5.0f;
         }
     }
+
+    public override void UpgradeAlly()
+    {
+        damage = 100;
+        attackSpeed = 0.3f;
+        maxHealth = 200f;
+        currentHealth = maxHealth;
+
+        Debug.Log("Bulldozer UPGRADED!");
+    }
 }

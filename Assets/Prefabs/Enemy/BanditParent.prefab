@@ -1856,7 +1856,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5134120758535130613, guid: d1076fa7a7c44a340a06a2e0e59b4952,
     type: 3}
   bulletSpawnPoint: {fileID: 1784174394460819795}
-  isAlive: 0
+  isAlive: 1
   healthBar: {fileID: 1034551734042207332}
   isTargetFound: 0
   isAttacking: 0

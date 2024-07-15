@@ -8,7 +8,6 @@ public class Rookie : Ally
 
         allyType = AllyType.rookie;
 
-
         characterName = "Rookie";
         damage = 10;
         attackSpeed = 1.0f;
@@ -28,5 +27,15 @@ public class Rookie : Ally
         AudioClip shotSFX = Resources.Load<AudioClip>("ShotPistolV1");
 
         audioManager.PlaySFX(shotSFX);
+    }
+
+    public override void UpgradeAlly()
+    {
+        damage = 20;
+        attackSpeed = 2f;
+        maxHealth = 200f;
+        currentHealth = maxHealth;
+
+        Debug.Log("Rookie UPGRADED!");
     }
 }

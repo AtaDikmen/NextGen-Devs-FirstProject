@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour, IDamagable
 {
+    private AudioManager audioManager;
+
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
     [SerializeField] private float inactiveDuration = 5f;
@@ -20,12 +22,23 @@ public class Tree : MonoBehaviour, IDamagable
 
     }
 
+    private void Start()
+    {
+        audioManager = AudioManager.Instance;
+    }
+
     public void TakeDamage(float damage)
     {
+        //AudioClip treeDamage = Resources.Load<AudioClip>("TreeDamage");
+        //audioManager.PlaySFX(treeDamage, 0.1f);
+
         currentHealth -= damage;
         Debug.Log("Tree health: " + currentHealth);
         if (currentHealth <= 0)
         {
+            AudioClip treeCollapse = Resources.Load<AudioClip>("TreeCollapse");
+            audioManager.PlaySFX(treeCollapse, 0.1f);
+
             OnDead();
         }
     }

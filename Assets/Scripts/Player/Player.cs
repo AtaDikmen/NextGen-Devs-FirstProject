@@ -17,8 +17,6 @@ public class Player : Entity
 
     private PlayerManager playerManager;
 
-    private List<Ally> allies = new List<Ally>();
-
     //Rocket
     public GameObject rocketPrefab;
     [SerializeField] private GunfireController rocketController;
@@ -60,12 +58,6 @@ public class Player : Entity
         pistolSFX = Resources.Load<AudioClip>("ShotPistolV1");
         rifleSFX = Resources.Load<AudioClip>("ShotRifle");
         shotGunSFX = Resources.Load<AudioClip>("ShotShotgun");
-
-        // Register allies as observers
-        foreach (var ally in FindObjectsOfType<Ally>())
-        {
-            allies.Add(ally);
-        }
     }
 
     public void UpgradeAttackSpeed(float _attackSpeed)
@@ -98,7 +90,7 @@ public class Player : Entity
             gameManager.SetPlayerInsideBase(false);
         }
     }
-
+   
     protected override void Attack()
     {
         if (playerManager.currentWeapon == WeaponType.pistol)

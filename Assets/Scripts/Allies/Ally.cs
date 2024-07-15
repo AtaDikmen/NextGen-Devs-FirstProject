@@ -17,8 +17,6 @@ public class Ally : Entity
 
     public AllyType allyType;
 
-    protected int allyCount;
-
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -35,5 +33,10 @@ public class Ally : Entity
         nextAttackTime = 0f;
         agent.speed = 5f;
         rotationSpeed = 20f;
+    }
+
+    public virtual void UpgradeAlly()
+    {
+
     }
 }

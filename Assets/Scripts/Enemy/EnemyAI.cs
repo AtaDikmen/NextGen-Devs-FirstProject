@@ -20,14 +20,14 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         entity = GetComponent<Entity>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameManager.Instance;
         playerParent = gameManager.GetPlayerParent();
         initialSpeed = agent.speed;
     }
 
     private void Update()
     {
-        if (gameManager.isEnemyWavePhase && gameManager.IsAnyPlayerAlive())
+        if (gameManager.isEnemyWavePhase)
         {
             agent.SetDestination(SetPlayerPosition());
         }
@@ -111,7 +111,7 @@ public class EnemyAI : MonoBehaviour
             } 
             while (!selectedPlayer.gameObject.activeSelf);
         }   
-        return selectedPlayer.position;
+        return selectedPlayer.transform.GetChild(0).position;
     }
 
     private void OnDrawGizmos()

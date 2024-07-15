@@ -65,4 +65,14 @@ public class Soldier : Ally
 
         AudioManager.Instance.PlaySFX(shotSFX);
     }
+
+    public override void UpgradeAlly()
+    {
+        damage *= 2;
+        attackSpeed = 6f;
+        maxHealth = 200f;
+        currentHealth = maxHealth;
+
+        Debug.Log("Soldier UPGRADED!");
+    }
 }

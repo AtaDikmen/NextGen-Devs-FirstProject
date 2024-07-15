@@ -9,6 +9,7 @@ public class MarketManager : MonoBehaviour
     public GameObject marketPanel; // Reference to the market panel
     public PlayerManager playerManager;
     public ResourceManager resourceManager;
+    private AudioManager audioManager;
     public Button closeButton; // Reference to the close button
     public GameObject RiflePriceText;
     public GameObject ShotgunPriceText;
@@ -19,6 +20,11 @@ public class MarketManager : MonoBehaviour
     private int rocketLauncherPrice;
     private List<string> ownedItems;
     private Vector3 initialPos;
+
+    //Audios
+    private AudioClip marketOpenClose;
+    private AudioClip marketBuy;
+
     void Awake()
     {
         ownedItems = new List<string>();
@@ -28,6 +34,11 @@ public class MarketManager : MonoBehaviour
     }
     private void Start()
     {
+        audioManager = AudioManager.Instance;
+        marketOpenClose = Resources.Load<AudioClip>("UIOpen_Close");
+        marketBuy = Resources.Load<AudioClip>("UIButtonPositive");
+
+
         marketPanel.SetActive(false);
         ownedItems.Add("pistol");
         closeButton.onClick.AddListener(CloseMarketPanel);
@@ -47,12 +58,14 @@ public class MarketManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             marketPanel.SetActive(false);
+            audioManager.PlaySFX(marketOpenClose);
         }
     }
 
     private void CloseMarketPanel()
     {
         marketPanel.SetActive(false);
+        audioManager.PlaySFX(marketOpenClose);
     }
     private int GetPriceFromName(string name)
     {
@@ -62,7 +75,7 @@ public class MarketManager : MonoBehaviour
                 return riflePrice;
             case "shotgun":
                 return shotgunPrice;
-            case "rocketLauncher":
+            case "rocket":
                 return rocketLauncherPrice;
             default:
                 return 0;
@@ -80,8 +93,8 @@ public class MarketManager : MonoBehaviour
                 EquippedIcon.transform.position = ShotgunPriceText.transform.position;
                 ShotgunPriceText.SetActive(false);
                 break;
-            case "rocketLauncher":
-                EquippedIcon.transform.position = ShotgunPriceText.transform.position;
+            case "rocket":
+                EquippedIcon.transform.position = RocketLauncherPriceText.transform.position;
                 RocketLauncherPriceText.SetActive(false);
                 break;
             default:
@@ -98,11 +111,13 @@ public class MarketManager : MonoBehaviour
             resourceManager.SubGold(itemPrice);
             ownedItems.Add(item);
             adujustEquippedItem(item);
+            audioManager.PlaySFX(marketBuy);
         }
         else if (ownedItems.Contains(item))
         {
             playerManager.ChangeWeapon(item);
             adujustEquippedItem(item);
+            audioManager.PlaySFX(marketBuy);
         }
         else
         {

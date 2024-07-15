@@ -140,15 +140,18 @@ public class Entity : MonoBehaviour, IDamagable
 
     public void TakeDamage(float damage)
     {
+        if (!isAlive) return;
+
         currentHealth -= damage;
         UpdateHealth(currentHealth, maxHealth);
         if (currentHealth <= 0)
         {
+            isAlive = false;
             Debug.Log(characterName + " is Dead");
             OnDead();
-            isAlive = false;
             if(gameObject.tag == "Enemy")
             {
+                GameManager.Instance.totalSpawnedEnemies.RemoveAt(GameManager.Instance.totalSpawnedEnemies.Count-1);
                 Destroy(gameObject);
             }
             else

@@ -14,6 +14,15 @@ public enum WeaponType
 
 public class PlayerManager : MonoBehaviour
 {
+    private AudioManager audioManager;
+    private AudioClip upgradePistol;
+    private AudioClip upgradeRifle;
+    private AudioClip upgradeShotgun;
+    private AudioClip upgradeRocket;
+
+    public int rookieNum, soldierNum, vanguardNum, bulldozerNum;
+
+
     private Player player;
 
     public WeaponType currentWeapon;
@@ -25,6 +34,12 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+        audioManager = AudioManager.Instance;
+        upgradePistol = Resources.Load<AudioClip>("FreeUpgradePistol");
+        upgradeRifle = Resources.Load<AudioClip>("FreeUpgradeRifle");
+        upgradeShotgun = Resources.Load<AudioClip>("FreeUpgradeShotgun");
+        upgradeRocket = Resources.Load<AudioClip>("FreeUpgradeRocket");
+
         currentWeapon = WeaponType.pistol;
 
         player = GetComponentInChildren<Player>();
@@ -51,11 +66,43 @@ public class PlayerManager : MonoBehaviour
         {
             if (ally.GetComponentInChildren<Ally>().allyType == _allyType)
             {
-                if (ally.activeSelf)
-                    return;
+                if (!ally.activeSelf)
+                {
+                    ally.transform.GetChild(0).position = _joinPosition.position;
+                    ally.SetActive(true);
 
-                ally.transform.GetChild(0).position = _joinPosition.position;
-                ally.SetActive(true);
+                    
+                }
+
+                switch (_allyType)
+                {
+                    case AllyType.rookie:
+                        audioManager.PlaySFX(upgradePistol);
+                        rookieNum++;
+                        if (rookieNum == 3)
+                            ally.GetComponentInChildren<Ally>().UpgradeAlly();
+                        break;
+                    case AllyType.soldier:
+                        soldierNum++;
+                        audioManager.PlaySFX(upgradeRifle);
+                        if (soldierNum == 3)
+                            ally.GetComponentInChildren<Ally>().UpgradeAlly();
+                        break;
+                    case AllyType.vanguard:
+                        vanguardNum++;
+                        audioManager.PlaySFX(upgradeShotgun);
+                        if (vanguardNum == 3)
+                            ally.GetComponentInChildren<Ally>().UpgradeAlly();
+                        break;
+                    case AllyType.bulldozer:
+                        bulldozerNum++;
+                        audioManager.PlaySFX(upgradeRocket);
+                        if (bulldozerNum == 3)
+                            ally.GetComponentInChildren<Ally>().UpgradeAlly();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

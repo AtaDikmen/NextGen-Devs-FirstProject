@@ -45,6 +45,11 @@ namespace BigRookGames.Weapons
                     targetHit = true;
                 }
             }
+            else
+            {
+                Explode();
+                Destroy(gameObject);
+            }
         }
 
 
@@ -72,7 +77,7 @@ namespace BigRookGames.Weapons
 
 
             // --- Destroy this object after 2 seconds. Using a delay because the particle system needs to finish ---
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, 2f);
         }
 
 
