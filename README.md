@@ -46,7 +46,18 @@
 
     **Bears:** Oyunun en güçsüz düşmanlarıdır. Sadece yakın saldırıda hasar verir. 50 cana sahiptir.
 
+## Pasif Özellikler
+- Pasif özellikler üs çevresindeki kuleler aracılığıyla sağlanır. Oyun başladığında kuleler yıkılmış halde bulunur ve restore edilmeleri gerekir. Kulelerin restore edilmesi için "coin" kaynağı kullanılır. Oyuncu yeterli coin’e sahipse kulenin önündeki işaretli alanda 2 saniye durduğunda kuleyi açmak için bir onay ekranı görünür.
+ 
+- **Altın:** Altın düşmanların yok edilmesi ile kazanılır. Düşmanın yok edilmesiyle elde edilen altın miktarı farklılık göstermektedir.
 
+- **Odun:** Pasif özellikli binaların inşaası için kullanılır. Ağaç kesme mekaniği ile elde edilir.
+
+- **Zırh Kulesi(100 odun 5 altın):** Tamamlandığında tüm grup kalıcı +20 can bonusu kazanır.
+
+## Kaynaklar
+- Oyunda 2 adet kaynak türü bulunmaktadır.
+ - **Terzi Kulesi (100 odun 5 altın):** Tamamlandığında tüm grup kalıcı +3 hareket hızı bonusu kazanır.
 
 ## Çevre tasarımları
 ## UI tasarımları
