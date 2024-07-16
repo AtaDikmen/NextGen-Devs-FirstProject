@@ -4,14 +4,23 @@
 
 ## Takım Bilgisi
 **Takım Lideri**:
-- <a><img align="center" /></a> [Ata Dikmen](link)
+- <a><img align="center" /></a> [Ata Dikmen](https://www.linkedin.com/in/ata-dikmen/)
 
 **Developers**:
+- <a><img align="center" /></a> [Ata Dikmen](https://www.linkedin.com/in/ata-dikmen/)
+- <a><img align="center" /></a> [Emir Özçelik](https://www.linkedin.com/in/emir-ozcelik/)
+- <a><img align="center" /></a> [Hatice Esra Yılmaz](https://www.linkedin.com/in/hesrayilmaz/)
+- <a><img align="center" /></a> [Can Usluel](https://www.linkedin.com/in/canusluel/)
+- <a><img align="center" /></a> [Alp Yılmaz](https://www.linkedin.com/in/alp-y%C4%B1lmaz-284296317/)
+- <a><img align="center" /></a> [Umut Fırat Yıldız](https://www.linkedin.com/in/umut-f%C4%B1rat-y%C4%B1ld%C4%B1z-104801300/)
 
 **Game Designers**:
+- <a><img align="center" /></a> [Utku Gezensoy](https://www.linkedin.com/in/utkugezensoy/)
+- <a><img align="center" /></a> [Ebrar Tekiş](https://www.linkedin.com/in/ebrartekis/)
 
 **Artists**:
-- <a><img align="center" /></a> [Ferhan Sönmez](link)
+- <a><img align="center" /></a> [Ferhan Sönmez](https://www.linkedin.com/in/ferhansonmez/)
+- <a><img align="center" /></a> Elif Uysal
 
 
 ## Hikaye
