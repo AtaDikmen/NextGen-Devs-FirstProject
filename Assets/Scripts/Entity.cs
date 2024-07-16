@@ -156,7 +156,16 @@ public class Entity : MonoBehaviour, IDamagable
             }
             else
             {
-                gameObject.transform.parent.gameObject.SetActive(false);
+                if(gameObject.transform.parent.name == "Player") // Player is dead
+                {
+                    gameObject.gameObject.SetActive(false);
+                    GameManager.Instance.GameOver();
+                }
+                else // Ally is dead
+                {
+                    gameObject.transform.parent.gameObject.SetActive(false);
+                }
+                
             }
         }
     }

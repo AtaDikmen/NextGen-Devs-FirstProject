@@ -19,7 +19,15 @@ public class Primitive : Enemy
     {
         enemyAI.Stop();
         transform.LookAt(target);
+        OnShotSFX();
         animator.SetTrigger("Attack");
         base.Attack();
+    }
+
+    protected override void OnShotSFX()
+    {
+        AudioClip shotSFX = Resources.Load<AudioClip>("Arrow");
+
+        AudioManager.Instance.PlaySFX(shotSFX);
     }
 }

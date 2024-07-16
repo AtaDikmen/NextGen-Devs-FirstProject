@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameManager.isEnemyWavePhase)
         {
-            agent.SetDestination(SetPlayerPosition());
+            agent.SetDestination(SetRandomPlayerPosition());
         }
         else 
         {
@@ -60,6 +60,8 @@ public class EnemyAI : MonoBehaviour
 
         if (closestEnemy != null)
         {
+            agent.isStopped = false;
+            agent.speed = initialSpeed * 2;
             animator.SetTrigger("Run");
             agent.SetDestination(closestEnemy.position);
         }
@@ -101,7 +103,7 @@ public class EnemyAI : MonoBehaviour
         return transform.position;
     }
 
-    private Vector3 SetPlayerPosition() 
+    private Vector3 SetRandomPlayerPosition() 
     {
         if (!selectedPlayer)
         {
@@ -110,8 +112,12 @@ public class EnemyAI : MonoBehaviour
                 selectedPlayer = playerParent.GetChild(Random.Range(0, playerParent.childCount));
             } 
             while (!selectedPlayer.gameObject.activeSelf);
-        }   
-        return selectedPlayer.transform.GetChild(0).position;
+        }
+
+        if (selectedPlayer.transform.parent.name == "Player") //main player
+            return selectedPlayer.transform.position;
+        else //ally
+            return selectedPlayer.transform.GetChild(0).position;
     }
 
     private void OnDrawGizmos()

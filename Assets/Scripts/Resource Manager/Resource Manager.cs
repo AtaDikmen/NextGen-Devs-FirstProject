@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ResourceManager : Singleton<ResourceManager>
 {
-    private AudioManager audioManager;
-
     //Audio Clips
     private List<AudioClip> collectCoin = new List<AudioClip>();
     private List<AudioClip> collectWood = new List<AudioClip>();
@@ -22,8 +20,6 @@ public class ResourceManager : Singleton<ResourceManager>
 
     protected override void Awake()
     {
-        audioManager = AudioManager.Instance;
-
         SetAudioClips();
 
         currentWood = woodStart;
@@ -53,7 +49,7 @@ public class ResourceManager : Singleton<ResourceManager>
 
     public void AddWood(int woodAmount)
     {
-        audioManager.PlaySFX(collectWood[Random.Range(0, collectWood.Count)], 1f);
+        AudioManager.Instance.PlaySFX(collectWood[Random.Range(0, collectWood.Count)], 1f);
 
         currentWood += woodAmount;
         woodResource.text = currentWood.ToString();
@@ -69,7 +65,7 @@ public class ResourceManager : Singleton<ResourceManager>
 
     public void AddGold(int goldAmount)
     {
-        audioManager.PlaySFX(collectCoin[Random.Range(0, collectCoin.Count)], 1f);
+        AudioManager.Instance.PlaySFX(collectCoin[Random.Range(0, collectCoin.Count)], 1f);
 
         currentGold += goldAmount;
         goldResource.text = currentGold.ToString();

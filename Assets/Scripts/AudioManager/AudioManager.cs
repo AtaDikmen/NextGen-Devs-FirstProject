@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -41,7 +42,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioSource source in audioSourcePool)
         {
-            if (!source.isPlaying)
+            if (source && !source.isPlaying)
             {
                 return source;
             }

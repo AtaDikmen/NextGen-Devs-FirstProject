@@ -19,8 +19,16 @@ public class Bandit : Enemy
     {
         enemyAI.Stop();
         transform.LookAt(target);
+        OnShotSFX();
         animator.SetTrigger("Attack");
         base.Attack();       
+    }
+
+    protected override void OnShotSFX()
+    {
+        AudioClip shotSFX = Resources.Load<AudioClip>("ShotRifle");
+
+        AudioManager.Instance.PlaySFX(shotSFX);
     }
 
 }

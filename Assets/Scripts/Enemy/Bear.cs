@@ -22,7 +22,15 @@ public class Bear : Enemy
     {
         enemyAI.Stop();
         transform.LookAt(target);
+        OnShotSFX();
         animator.SetTrigger("Attack");
         target.GetComponent<Entity>().TakeDamage(damage);
+    }
+
+    protected override void OnShotSFX()
+    {
+        AudioClip shotSFX = Resources.Load<AudioClip>("BearRoar");
+
+        AudioManager.Instance.PlaySFX(shotSFX);
     }
 }
