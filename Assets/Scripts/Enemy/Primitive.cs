@@ -26,7 +26,7 @@ public class Primitive : Enemy
 
     protected override void OnShotSFX()
     {
-        AudioClip shotSFX = Resources.Load<AudioClip>("Arrow");
+        AudioClip shotSFX = Resources.Load<AudioClip>("ShotArrow");
 
         AudioManager.Instance.PlaySFX(shotSFX);
     }
