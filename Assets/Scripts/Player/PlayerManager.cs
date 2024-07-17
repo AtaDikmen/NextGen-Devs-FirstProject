@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public enum WeaponType
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI upgradeText;
+
     private AudioManager audioManager;
     private AudioClip upgradePistol;
     private AudioClip upgradeRifle;
@@ -80,31 +83,52 @@ public class PlayerManager : MonoBehaviour
                         audioManager.PlaySFX(upgradePistol);
                         rookieNum++;
                         if (rookieNum == 3)
+                        {
                             ally.GetComponentInChildren<Ally>().UpgradeAlly();
+                            StartCoroutine(UpgradeTextCoroutine(_allyType));
+                        }
                         break;
                     case AllyType.soldier:
                         soldierNum++;
                         audioManager.PlaySFX(upgradeRifle);
                         if (soldierNum == 3)
+                        {
                             ally.GetComponentInChildren<Ally>().UpgradeAlly();
+                            StartCoroutine(UpgradeTextCoroutine(_allyType));
+                        }
                         break;
                     case AllyType.vanguard:
                         vanguardNum++;
                         audioManager.PlaySFX(upgradeShotgun);
                         if (vanguardNum == 3)
+                        {
                             ally.GetComponentInChildren<Ally>().UpgradeAlly();
+                            StartCoroutine(UpgradeTextCoroutine(_allyType));
+                        }
                         break;
                     case AllyType.bulldozer:
                         bulldozerNum++;
                         audioManager.PlaySFX(upgradeRocket);
                         if (bulldozerNum == 3)
+                        {
                             ally.GetComponentInChildren<Ally>().UpgradeAlly();
+                            StartCoroutine(UpgradeTextCoroutine(_allyType));
+                        }
                         break;
                     default:
                         break;
                 }
             }
         }
+    }
+
+    private IEnumerator UpgradeTextCoroutine(AllyType allyType)
+    {
+        upgradeText.text = "The " + allyType.ToString() + " upgraded!";
+
+        yield return new WaitForSeconds(2);
+
+        upgradeText.text = "";
     }
 
     public void ChangeWeapon(string weaponType)

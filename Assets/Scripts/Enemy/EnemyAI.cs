@@ -114,7 +114,7 @@ public class EnemyAI : MonoBehaviour
             while (!selectedPlayer.gameObject.activeSelf);
         }
 
-        if (selectedPlayer.transform.parent.name == "Player") //main player
+        if (selectedPlayer.gameObject.name == "General") //main player
             return selectedPlayer.transform.position;
         else //ally
             return selectedPlayer.transform.GetChild(0).position;

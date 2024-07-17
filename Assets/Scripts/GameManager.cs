@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     //UI
     [SerializeField] private GameObject timer;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private GameObject surviveText;
 
 
     [SerializeField] private Transform baseSpawnPoint;
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
             isEnemyWavePhase = false;
             StartCoroutine(StartCountdown(countdownTime));
             timer.SetActive(true);
+            surviveText.SetActive(false);
 
             foreach (CampSpawner campSpawner in campSpawners) 
             {
@@ -103,7 +105,7 @@ public class GameManager : MonoBehaviour
             remainingTime -= Time.deltaTime;
             UpdateTimerText(remainingTime);
 
-            if (remainingTime <= 11 && !isAudioPlaying)
+            if (remainingTime <= 10 && !isAudioPlaying)
             {
                 audioManager.PlaySFX(lastSeconds);
                 isAudioPlaying = true;
@@ -114,8 +116,9 @@ public class GameManager : MonoBehaviour
         isEnemyWavePhase = true;
         currentState = GameStates.surviveState;
         timer.SetActive(false);
+        surviveText.SetActive(true);
 
-        if(!isPlayerInsideBase)
+        if (!isPlayerInsideBase)
         {
             GameOver();
         }
