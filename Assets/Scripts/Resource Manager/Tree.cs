@@ -33,7 +33,6 @@ public class Tree : MonoBehaviour, IDamagable
         //audioManager.PlaySFX(treeDamage, 0.1f);
 
         currentHealth -= damage;
-        Debug.Log("Tree health: " + currentHealth);
         if (currentHealth <= 0)
         {
             AudioClip treeCollapse = Resources.Load<AudioClip>("TreeCollapse");
