@@ -100,7 +100,7 @@
   * **Nasıl Çalışır?:** Oyuncu inşaa edilmemiş bir kulenin önündeki belirlenen alada 2 saniye durduğunda yeterli kaynağa sahipse kuleyi inşa edebileceği bir ekran açılır. Ekranda kulenin özellikleri ve onaylama butonu yer  almaktadır.
 
     <p align="center">
-    <img width="872" height="427" src="https://github.com/user-attachments/assets/28ab56fd-3aaf-423c-a8d9-36fe3ca90c22">
+    <img width="872" height="427" src="https://github.com/user-attachments/assets/dc371054-6ca6-4697-899a-a153c63445e3">
     <br>
     <i> Kule İnşaası </i>
     </p>
