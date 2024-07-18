@@ -261,3 +261,35 @@
    - **UIOpen_Close:** Mağaza (silah alma ekranı) ve kule (inşa ekranı) açılırken ve kapanırken (çarpıya baslınıca) çıkan ses.
    - **UIButtonPositive:** Mağazadan silahı alınca ve kule satın alınca çıkacak ses.
 
+## Oyun İçi Görüntüler
+
+   <p align="center">
+   <img width="872" height="427" src="https://github.com/user-attachments/assets/f509349a-3159-4669-b5b7-c5e97de953f7">
+   <br>
+   <i> Silah Seçimi - UI </i>
+   </p>
+
+   <br>
+
+   <p align="center">
+   <img width="872" height="427" src="https://github.com/user-attachments/assets/ed1b0972-aaec-4a7b-ac70-5320b92d8bec">
+   <br>
+   <i> Düşmanla Savaş </i>
+   </p>
+   
+   <br>
+   
+   <p align="center">
+   <img width="872" height="427" src="https://github.com/user-attachments/assets/90b755d3-c3b1-4165-baa1-e629aece3ab4">
+   <br>
+   <i> Düşman Kampı Temizleme </i>
+   </p>
+   
+   <br>
+
+   <p align="center">
+   <img width="872" height="427" src="https://github.com/user-attachments/assets/4e5cb668-7d5c-4dc2-94b7-f0001ffd5a63">
+   <br>
+   <i> Ekibe Yeni Üye Ekleme </i>
+   </p>
+   
