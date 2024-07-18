@@ -161,11 +161,9 @@
   - **Altın:** Altın düşmanların yok edilmesi ile kazanılır. Düşmanın yok edilmesiyle elde edilen altın miktarı farklılık göstermektedir.
   - **Odun:** Pasif özellikli binaların inşaası için kullanılır. Ağaç kesme mekaniği ile elde edilir.
 
-
-https://github.com/user-attachments/assets/30297064-55f8-4464-b193-82f895224fb7
 ## Temel Asset Listesi
 
-<table style="border: 0px;">
+<table style="border: 0px; border-collapse: unset;">
 <tr>
 <td style="vertical-align: top; width: 50%;">
 
@@ -196,15 +194,70 @@ https://github.com/user-attachments/assets/30297064-55f8-4464-b193-82f895224fb7
    - **Roket Atar**
    - **Ok-Yay**
    - **Mermi**
+</td>
+<td style="vertical-align: top; width: 50%;">
+<img src="https://github.com/user-attachments/assets/30297064-55f8-4464-b193-82f895224fb7" style="width:418.6px; height:780px;">
+</td>
+</tr>
+</table>
 
+<table style="border: 0px; border-collapse: unset;">
+<tr>
+<td style="vertical-align: top; width: 50%;">
+   
+### Base
+   - **Base binası veya binalar bütünü(toplu halde)**
+   - **Yıkık (harap olmuş) kule.**
+   - **Tamir edilmiş (sağlam) kule.**
+   - **Kulelerin üzerine konulacak terzi, demirci, zırh ögeleri (2D texture).**
+   - **Kulelerin üzerine koyulacak texture için Bayrak.**
+   - **Duvarlar (üssün dört bir yanını çevirecek halde)**
+   - **Kum torbası**
+   - **Tuzaklar ve dikenler.**
+    
+### Çevresel Öğeler
+   - **Ağaçlar**
+      * Oyun bölümünün doğal sınırları olacak ağaçlar.
+      * Kesilebilir ağaçlar.
+        
+   - **Çevresel Öğeler**
+      * Çayır, çimen
+      * Çiçek
+      * Kemik
+      * Su, nehir
+      * Taşlar
+### Kaynaklar
+   - **Altın**
+   - **Odun**
 </td>
 <td style="vertical-align: top; width: 50%;">
 
-<img src="https://github.com/user-attachments/assets/30297064-55f8-4464-b193-82f895224fb7" style="width:418.6px; height:780px">
+<img src="https://github.com/user-attachments/assets/9fdf018f-79d5-4582-863f-5f051351d09d" style="width:519px; height:240.5px;">
 
 </td>
 </tr>
 </table>
 
-    
-## UI tasarımları
+## Temel Ses Listesi
+
+   - **CollectCoin:** (2 farklı ses) altın toplarken listeden random çaldırılacak.
+   - **CollectWood:** (4 farklı ses) her bir odun toplama işleminde listeden random çaldırılacak.
+   - **TowerBuild:** Kule inşaa edince çalınacak.
+   - **TreeDamage:** Ağaç her bir hasar aldığında çalacak.
+   - **TreeCollapse:** Ağaçta kaynak kalmadığında çalacak (yıkılma sesi).
+   - **WaveStart:** Wave başladığında çalınacak.
+   - **WaveEnd:** Wave bitince çalınacak.
+   - **ShotPistol:** Tabanca ateşlendiğinde çalacak.
+   - **ShotRifle:** Taramalı Tüfek ateşlendiğinde çalacak.
+   - **ShotShotgun:** Pompalı Tüfek ateşlendiğinde çalacak.
+   - **ShotRocket:** Roket Atar ateşlendiğinde çalacak.
+   - **BearAttack:** Ayı saldırısı sırasında çalacak.
+   - **Arrow:** Primitive saldırısı sırasında çalacak.
+   - **FreeUpgradePistol:** Rookie adlı ally kafesten kurtarıldığında veya Rookie upgrade edildiğinde çalınacak 3 katmanlı ses.
+   - **FreeUpgradeRifle:** Soldier adlı ally kafesten kurtarıldığında veya Soldier upgrade edildiğinde çalınacak 3 katmanlı ses.
+   - **FreeUpgradeShotgun:** Vanguard adlı ally kafesten kurtarıldığında veya Vanguard upgrade edildiğinde çalınacak 3 katmanlı ses.
+   - **FreeUpgradeRocket:** Bulldozer adlı ally kafesten kurtarıldığında veya Bulldozer upgrade edildiğinde çalınacak 3 katmanlı ses.
+   - **LastSeconds:** Süre son 10 saniye kalınca çalınacak ses.
+   - **UIOpen_Close:** Mağaza (silah alma ekranı) ve kule (inşa ekranı) açılırken ve kapanırken (çarpıya baslınıca) çıkan ses.
+   - **UIButtonPositive:** Mağazadan silahı alınca ve kule satın alınca çıkacak ses.
+
