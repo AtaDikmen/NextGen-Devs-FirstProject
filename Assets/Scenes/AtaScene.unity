@@ -26048,6 +26048,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 9041467403377806056, guid: c0f1b3e4fc3966648b197438954da754,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60.69995
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

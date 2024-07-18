@@ -73,8 +73,6 @@ public class PlayerManager : MonoBehaviour
                 {
                     ally.transform.GetChild(0).position = _joinPosition.position;
                     ally.SetActive(true);
-
-                    
                 }
 
                 switch (_allyType)

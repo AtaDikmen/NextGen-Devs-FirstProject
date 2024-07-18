@@ -133,7 +133,7 @@ public class Player : Entity
 
     private void RifleFire()
     {
-        attackSpeed = defaultAttackSpeed * 0.6f;
+        attackSpeed = defaultAttackSpeed * 1.3f;
 
         if (!isReloading)
         {
