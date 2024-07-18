@@ -1,26 +1,31 @@
 # NextGen Devs 2024 🚀
 
 # Alliance Command
+## Proje Boyutu
 
-## Takım Bilgisi
-**Takım Lideri**:
-- <a><img align="center" /></a> [Ata Dikmen](https://www.linkedin.com/in/ata-dikmen/)
+**Takım Adı: Takım-1 (Opsiyonel)**
 
-**Developers**:
-- <a><img align="center" /></a> [Ata Dikmen](https://www.linkedin.com/in/ata-dikmen/)
-- <a><img align="center" /></a> [Emir Özçelik](https://www.linkedin.com/in/emir-ozcelik/)
-- <a><img align="center" /></a> [Hatice Esra Yılmaz](https://www.linkedin.com/in/hesrayilmaz/)
-- <a><img align="center" /></a> [Can Usluel](https://www.linkedin.com/in/canusluel/)
-- <a><img align="center" /></a> [Alp Yılmaz](https://www.linkedin.com/in/alp-y%C4%B1lmaz-284296317/)
-- <a><img align="center" /></a> [Umut Fırat Yıldız](https://www.linkedin.com/in/umut-f%C4%B1rat-y%C4%B1ld%C4%B1z-104801300/)
+**Proje Süresi: 1 Hafta**
 
-**Game Designers**:
-- <a><img align="center" /></a> [Utku Gezensoy](https://www.linkedin.com/in/utkugezensoy/)
-- <a><img align="center" /></a> [Ebrar Tekiş](https://www.linkedin.com/in/ebrartekis/)
+**Takım Üyeleri:**
+   - **Takım Lideri**:
+      * <a><img align="center" /></a> [Ata Dikmen](https://www.linkedin.com/in/ata-dikmen/)
 
-**Artists**:
-- <a><img align="center" /></a> [Ferhan Sönmez](https://www.linkedin.com/in/ferhansonmez/)
-- <a><img align="center" /></a> Elif Uysal
+   - **Developers**:
+      * <a><img align="center" /></a> [Ata Dikmen](https://www.linkedin.com/in/ata-dikmen/)
+      * <a><img align="center" /></a> [Emir Özçelik](https://www.linkedin.com/in/emir-ozcelik/)
+      * <a><img align="center" /></a> [Hatice Esra Yılmaz](https://www.linkedin.com/in/hesrayilmaz/)
+      * <a><img align="center" /></a> [Can Usluel](https://www.linkedin.com/in/canusluel/)
+      * <a><img align="center" /></a> [Alp Yılmaz](https://www.linkedin.com/in/alp-y%C4%B1lmaz-284296317/)
+      * <a><img align="center" /></a> [Umut Fırat Yıldız](https://www.linkedin.com/in/umut-f%C4%B1rat-y%C4%B1ld%C4%B1z-104801300/)
+
+   - **Game Designers**:
+      * <a><img align="center" /></a> [Utku Gezensoy](https://www.linkedin.com/in/utkugezensoy/)
+      * <a><img align="center" /></a> [Ebrar Tekiş](https://www.linkedin.com/in/ebrartekis/)
+
+   - **Artists**:
+      * <a><img align="center" /></a> [Ferhan Sönmez](https://www.linkedin.com/in/ferhansonmez/)
+      * <a><img align="center" /></a> Elif Uysal
 
 
 ## Hikaye
@@ -109,35 +114,35 @@
     </p>
 
 - **Yardımcı Karakterler**
-  
-    - **Rookie:** 1 saniye aralıklarla mermi ateşleyen ekiptir.
+
+  - **Rookie:** 1 saniye aralıklarla mermi ateşleyen ekiptir.
     <p align="center">
     <img width="387.8" height="315" src="https://github.com/user-attachments/assets/ff9f45b9-6870-45ff-8986-1070335f9b7e">
     </p>
-    - **Soldier:** Art arda mermi ateşleyen ekiptir.
+  - **Soldier:** Art arda mermi ateşleyen ekiptir.
     <p align="center">
     <img width="405.3" height="301.7" src="https://github.com/user-attachments/assets/be8f0e55-4aab-40af-92ee-597f5f3d690c">
     </p>
-    - **Vanguard:** 70 derecelik çembersel bir açıyla 5 mermi ateşler. Mermi ateşleme aralığı 0.6s.
+  - **Vanguard:** 70 derecelik çembersel bir açıyla 5 mermi ateşler. Mermi ateşleme aralığı 0.6s.
     <p align="center">
     <img width="377.3" height="289.1" src="https://github.com/user-attachments/assets/268cb09d-ee46-48b8-a8cb-34c276d0a707">
     </p>
-    - **Bulldozer:** Her 3 saniyede bir düşmanlara füze ateşler, alan hasarı vurur.
+  - **Bulldozer:** Her 3 saniyede bir düşmanlara füze ateşler, alan hasarı vurur.
     <p align="center">
     <img width="406.7" height="301" src="https://github.com/user-attachments/assets/599ed139-c0fa-4b52-9aee-29c390d817a6">
     </p>
 
 - **Düşmanlar**
 
-    - **Bears:** Oyunun en güçsüz düşmanlarıdır. Sadece yakın saldırıda hasar verir. 50 cana sahiptir.
+   - **Bears:** Oyunun en güçsüz düşmanlarıdır. Sadece yakın saldırıda hasar verir. 50 cana sahiptir.
       <p align="center">
       <img width="300" height="319" src="https://github.com/user-attachments/assets/517f2bad-0a53-4efb-a8be-f16383ba1bb6">
       </p>
-    - **Primitive:** Mızrak, yay ve ok kullanan gelişmemiş insan topluluklarıdır. 100 cana sahiptir.
+   - **Primitive:** Mızrak, yay ve ok kullanan gelişmemiş insan topluluklarıdır. 100 cana sahiptir.
       <p align="center">
       <img width="339.5" height="331.8" src="https://github.com/user-attachments/assets/bcfe217f-d530-40bc-b54c-9773ff69d111">
       </p>
-      - **Bandits:** Taramalı tüfeğe sahip düşman birlikleridir. 150 cana sahiptir.
+   - **Bandits:** Taramalı tüfeğe sahip düşman birlikleridir. 150 cana sahiptir.
       <p align="center">
       <img width="391.3" height="281.4" src="https://github.com/user-attachments/assets/31e4bc07-63a0-4d22-8643-5316e3467b27">
       </p>
@@ -156,5 +161,50 @@
   - **Altın:** Altın düşmanların yok edilmesi ile kazanılır. Düşmanın yok edilmesiyle elde edilen altın miktarı farklılık göstermektedir.
   - **Odun:** Pasif özellikli binaların inşaası için kullanılır. Ağaç kesme mekaniği ile elde edilir.
 
-## Çevre tasarımları
+
+https://github.com/user-attachments/assets/30297064-55f8-4464-b193-82f895224fb7
+## Temel Asset Listesi
+
+<table style="border: 0px;">
+<tr>
+<td style="vertical-align: top; width: 50%;">
+
+### Karakterler
+   - **General**
+   - **Rookie**
+   - **Soldier**
+   - **Vanguard**
+   - **Buldozer**
+
+### Düşmanlar
+   - **Bears**
+   - **Primitive**
+   - **Bandits**
+
+### Düşman Kampları
+   - **Çadır**
+   - **Kafes**
+   - **Kamp Ateşi**
+   - **Tahta Bina**
+   - **Tahta Masa, Sandalye, Oturak vb.**
+   - **Sokak lambaları**
+
+### Silahlar
+   - **Tabanca**
+   - **Taramalı Tüfek**
+   - **Pompalı Tüfek**
+   - **Roket Atar**
+   - **Ok-Yay**
+   - **Mermi**
+
+</td>
+<td style="vertical-align: top; width: 50%;">
+
+<img src="https://github.com/user-attachments/assets/30297064-55f8-4464-b193-82f895224fb7" style="width:418.6px; height:780px">
+
+</td>
+</tr>
+</table>
+
+    
 ## UI tasarımları
