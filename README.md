@@ -164,8 +164,8 @@
 ## Temel Asset Listesi
 
 <table style="border: 0px; border-collapse: unset;">
-<tr>
-<td style="vertical-align: top; width: 50%;">
+<tr style="border: 0px;">
+<td style="vertical-align: top; width: 50%; border: 0px;">
 
 ### Karakterler
    - **General**
@@ -195,15 +195,15 @@
    - **Ok-Yay**
    - **Mermi**
 </td>
-<td style="vertical-align: top; width: 50%;">
+<td style="vertical-align: top; width: 50%; border: 0px;">
 <img src="https://github.com/user-attachments/assets/30297064-55f8-4464-b193-82f895224fb7" style="width:418.6px; height:780px;">
 </td>
 </tr>
 </table>
 
 <table style="border: 0px; border-collapse: unset;">
-<tr>
-<td style="vertical-align: top; width: 50%;">
+<tr style="border: 0px;">
+<td style="vertical-align: top; width: 50%; border: 0px;">
    
 ### Base
    - **Base binası veya binalar bütünü(toplu halde)**
@@ -230,7 +230,7 @@
    - **Altın**
    - **Odun**
 </td>
-<td style="vertical-align: top; width: 50%;">
+<td style="vertical-align: top; width: 50%; border: 0px;">
 
 <img src="https://github.com/user-attachments/assets/9fdf018f-79d5-4582-863f-5f051351d09d" style="width:519px; height:240.5px;">
 
